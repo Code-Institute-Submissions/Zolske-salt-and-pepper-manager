@@ -155,5 +155,6 @@ LOGOUT_REDIRECT_URL = "home"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-# may be it let's me use JS on Heroku?
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
