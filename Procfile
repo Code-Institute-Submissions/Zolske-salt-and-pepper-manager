@@ -1,0 +1,1 @@
+New-Item Procfile ; Set-Content Procfile 'web: gunicorn django_project.wsgi'
