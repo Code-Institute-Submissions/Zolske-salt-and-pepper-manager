@@ -44,7 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage', #must be above 'django.contrib.staticfiles'
     'django.contrib.staticfiles',
-    'cloudinary', #can be below
+    # 3rd party apps    
+    'cloudinary',
+    "crispy_forms",
+    "crispy_bootstrap5",
+    # django_project apps
+    'apppages.apps.ApppagesConfig', 
+    'appaccounts.apps.AppaccountsConfig',
+    'appbooking.apps.AppbookingConfig', 
 ]
 
 MIDDLEWARE = [
@@ -135,3 +142,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# tell Django to use the new custom user model in place of the built-in User model
+AUTH_USER_MODEL = "appaccounts.CustomUser"
+
+# redirects the user after logging in and out to the 'home' url
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
+
+# Crisp's Bootstrap settings
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

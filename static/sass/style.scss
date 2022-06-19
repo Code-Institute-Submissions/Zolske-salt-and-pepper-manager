@@ -1,0 +1,8 @@
+// sass --watch static/sass/style.scss static/css/sass-style.css
+// import bootstrap sass do not delete, creates entire bootstrap, but can be modified here
+@import "bootstrap-sass520beta/bootstrap.scss";
+
+#next-week-button,
+#previous-week-button {
+  --bs-btn-padding-x: 0;
+}

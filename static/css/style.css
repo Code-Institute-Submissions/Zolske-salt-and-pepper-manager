@@ -1,0 +1,34 @@
+.hide-table {
+    display: none;
+}
+
+.text-rotate {
+    writing-mode: vertical-rl;
+    /* font-size: 2vw; */
+}
+
+@media only screen and (max-width: 768px) {
+    .md-break {
+        display: block;
+        width: 100%;
+    }
+
+    .text-rotate {
+        writing-mode: unset;
+        font-size: large;
+    }
+
+}
+
+@media only screen and (max-width: 992px) {
+    .ld-break {
+        display: block;
+        /* width: 100%; */
+    }
+
+    /* .text-rotate {
+        writing-mode: unset;
+        font-size: large;
+    } */
+
+}
