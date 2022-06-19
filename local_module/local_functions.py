@@ -44,19 +44,6 @@ def last_date_of_week(year_week=str):
         return last_date.strftime("%drd of %b")
     else:
         return last_date.strftime("%dth of %b")
-    
-# def update_available_tables_model():
-#     for weekday_num in range(7):
-#         # function converts weekdays to Django weekdays (1 is Sunday)
-#         django_weekday_num = weekday_num_to_django(weekday_num)
-#         if weekday_num >= today_day_num:
-#             has_data = AvailableTable.objects.filter(booking_date__year=today_year, booking_date__week=today_week, booking_date__week_day=django_weekday_num).values()
-#             if not has_data:
-#                 accumulate_week_day = today_date + datetime.timedelta(abs(weekday_num - today_day_num))
-#                 accumulate_week_day.strftime("%Y-%m-%d")
-#                 new_record = AvailableTable(booking_date=accumulate_week_day , time_slot_12=10, time_slot_14=10, time_slot_16=10, time_slot_18=10, time_slot_20=10, time_slot_22=10, )
-#                 new_record.save()
-#             week_dic[list(week_dic)[weekday_num]] = AvailableTable.objects.filter(booking_date__year=today_year, booking_date__week=today_week, booking_date__week_day=django_weekday_num).values()
 
 def sort_db_oldest_booking(database):
     '''
@@ -77,16 +64,6 @@ def delete_passed_days(database):
         delete_record.delete()
         # update available_tables_db variable with database and sort by booking date
         available_tables_db = sort_db_oldest_booking(database)
-        
-# def record_today(database, today):
-#     '''
-#     Create a database entry with todays date if it dose not exist and set time slot value to 10
-#     '''
-#     available_tables_db = sort_db_oldest_booking(database)
-#     # if first record is not today, than add today
-#     if available_tables_db[0]['booking_date'].strftime("%Y-%m-%d") != today.strftime("%Y-%m-%d"):
-#         new_record = database(booking_date=today, time_slot_12=10, time_slot_14=10, time_slot_16=10, time_slot_18=10, time_slot_20=10, time_slot_22=10 )
-#         new_record.save()
         
 def add_missing_records(database):
     '''
@@ -205,15 +182,4 @@ def booking_context_object(database):
           
     return [this_week_dic, this_week_meta, after_weeks]
 
-##################################################################
-# django.contrib.auth
 
-
-from django.db import models
-from django.contrib.auth import get_user_model
-
-User=get_user_model()
-
-# print(User.__dict__)
-
-print(User.objects)

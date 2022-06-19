@@ -17,7 +17,15 @@
 {% if user_logged_in %}
 <ul>
     {% for entry in user_booking_list %}
-    <li>on the {{entry.booked_date|date:"d. M Y"}}, for {{entry.booked_tables}} table, at {{entry.booked_time}} o'clock
+    <li>On the {{entry.booked_date|date:"d."}} of {{entry.booked_date|date:"M"}}, for {{entry.booked_tables}} table, at
+        {{entry.booked_time}} o'clock. You can
+        <form action="cancelbooking/" method="post" class="d-inline">
+            {% csrf_token %}
+            <input type="hidden" name="booking_date" value="{{entry.booked_date|date:'Y-m-d'}}">
+            <input type="hidden" name="time_slot" value="{{entry.booked_time}}">
+            <input type="hidden" name="num_tables" value="{{entry.booked_tables}}">
+            <input type="submit" value="cancel" class="btn btn-danger btn-sm">
+        </form>
     </li>
     {% endfor%}
 </ul>
