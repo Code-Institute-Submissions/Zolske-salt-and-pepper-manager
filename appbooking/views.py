@@ -29,7 +29,7 @@ def available_tables(request):
     'has_bookings' : has_bookings,
     'user_booking_list' : user_booking_list,
     }
-    # is set to true only if the user is logged in
+    # is set to true only if the user  is logged in
     if request.user.is_authenticated:
         context['user_logged_in'] = True
         
