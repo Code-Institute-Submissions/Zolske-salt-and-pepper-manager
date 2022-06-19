@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 
 import dj_database_url
 if os.path.isfile("env.py"):
@@ -153,3 +154,6 @@ LOGOUT_REDIRECT_URL = "home"
 # Crisp's Bootstrap settings
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# may be it let's me use JS on Heroku?
+X_FRAME_OPTIONS = 'SAMEORIGIN'
