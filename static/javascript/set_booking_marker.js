@@ -175,22 +175,13 @@ function amendTime(booking) {
               timeValueArray[time] +
                 parseInt(availableTablesData[week][day][time])
             );
-            // option.setAttribute(
-            //   "data-table-number",
-            //   availableTablesData[week][day][time]
-            // );
+
             option.innerText = timeTextArray[time];
             booking.insertAdjacentElement("beforeend", option);
-            // console.log(timeTextArray[time]);
-            // booking.setAttribute(
-            //   "data-table-num",
-            //   parseInt(availableTablesData[week][day][time])
-            // );
           } else {
             let option = document.createElement("option");
             option.setAttribute("value", timeValueArray[time]);
             option.innerText = timeTextArray[time];
-            // console.log(timeTextArray[time]);
             option.setAttribute("class", "bg-secondary bg-opacity-25");
             option.setAttribute("value", "");
             option.setAttribute("disabled", "");
@@ -205,10 +196,6 @@ function amendTime(booking) {
     }
   }
 }
-
-// console.log(`the day is ${availableTablesData[week][day][0]}`);
-// console.log(booking);
-// console.log(bookingDate);
 
 function amendTable(timeSlot) {
   let tableElement = timeSlot.parentNode.nextElementSibling.firstElementChild;
