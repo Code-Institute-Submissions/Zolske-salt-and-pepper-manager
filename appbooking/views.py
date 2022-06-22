@@ -78,9 +78,12 @@ def cancel_booking(request):
     cancel_num_tables = request.POST['num_tables']
     user_now = request.user
     
+    # find the booking according to the user, booked date, booked time and booked time
     find_booking_record = User_Bookings.objects.filter(booked_name=user_now, booked_date=cancel_booking_date, booked_time=cancel_time_slot, booked_tables=cancel_num_tables)
-    find_booking_record.delete()
+    #  only delete the first entry if there are more then one!!
+    find_booking_record[0].delete()
     
+    # updates the tables in the available table model
     available_table_db = AvailableTable.objects.filter(booking_date=cancel_booking_date)
     time_slot = 'time_slot_' + cancel_time_slot[:2]
     add_table = int(available_table_db.values()[0][time_slot]) + int(cancel_num_tables)
@@ -99,3 +102,79 @@ def cancel_booking(request):
        
     return HttpResponseRedirect(reverse('bookings'))
     
+
+def amend_booking(request):
+    original_date = request.POST['original-date']
+    original_time = request.POST['original-time']
+    # format string to e.g. time_slot_12
+    or_available_db_time_slot = 'time_slot_' + original_time[:2]
+    original_table = int(request.POST['original-table'])
+    amend_booking_date = request.POST['booking_date']
+    amend_time_slot_unformatted = request.POST['time_slot']
+    # format string to e.g. 12:00
+    amend_time_slot = amend_time_slot_unformatted[:2] + ":00"
+    # format string to e.g. time_slot_12
+    available_db_time_slot = 'time_slot_' + amend_time_slot_unformatted[:2]
+    amend_num_tables = int(request.POST['num_tables'])
+    user_now = request.user
+    
+    print(f"original_date {original_date}")
+    print(f"original_time {original_time}")
+    print(f"original_table {original_table}")
+    
+    print(f"amend_booking_date {amend_booking_date}")
+    print(f"amend_time_slot {amend_time_slot}")
+    print(f"amend_num_tables {amend_num_tables}")
+    
+    # find the id according to the user, booked date, booked time and booked table
+    # (is necessarily, in case there are more then one booking with the same date, time, table)
+    id_user_booking = User_Bookings.objects.filter(
+        booked_name=user_now,booked_date=original_date, booked_time=original_time,
+        booked_tables=original_table).values_list('id', flat=True)[0]
+    
+    # gets the booking according to the id found before
+    find_booking_record = User_Bookings.objects.filter(id=id_user_booking)
+    # update time and table number
+    find_booking_record.update(booked_time=amend_time_slot)
+    find_booking_record.update(booked_tables=amend_num_tables)
+    
+    # 1. revert original booking
+    # updates the tables in the available table model
+    available_table_db = AvailableTable.objects.filter(booking_date=original_date)
+    time_slot = or_available_db_time_slot
+    add_table = int(available_table_db.values()[0][time_slot]) + int(original_table)
+    if time_slot == 'time_slot_12':
+        available_table_db.update(time_slot_12=add_table)
+    elif time_slot == 'time_slot_14':
+        available_table_db.update(time_slot_14=add_table)
+    elif time_slot == 'time_slot_16':
+        available_table_db.update(time_slot_16=add_table)
+    elif time_slot == 'time_slot_18':
+        available_table_db.update(time_slot_18=add_table)
+    elif time_slot == 'time_slot_20':
+        available_table_db.update(time_slot_20=add_table)
+    elif time_slot == 'time_slot_22':
+        available_table_db.update(time_slot_22=add_table)
+    
+    # 2. subtract amended booking
+    # updates the tables in the available table model
+    available_table_db = AvailableTable.objects.filter(booking_date=amend_booking_date)
+    time_slot = available_db_time_slot
+    add_table = int(available_table_db.values()[0][time_slot]) - int(amend_num_tables)
+    if time_slot == 'time_slot_12':
+        available_table_db.update(time_slot_12=add_table)
+    elif time_slot == 'time_slot_14':
+        available_table_db.update(time_slot_14=add_table)
+    elif time_slot == 'time_slot_16':
+        available_table_db.update(time_slot_16=add_table)
+    elif time_slot == 'time_slot_18':
+        available_table_db.update(time_slot_18=add_table)
+    elif time_slot == 'time_slot_20':
+        available_table_db.update(time_slot_20=add_table)
+    elif time_slot == 'time_slot_22':
+        available_table_db.update(time_slot_22=add_table)
+    
+    return HttpResponseRedirect(reverse('bookings'))
+    
+    
+   

@@ -3,6 +3,8 @@
 {% block title %}Bookings{% endblock title %}
 
 {% block content %}
+{% load static %}
+<script src="{% static 'javascript/set_booking_marker.js' %}" type="module"></script>
 <h1>Booking Page</h1>
 {% if has_bookings %}
 <hr>
@@ -17,15 +19,114 @@
 {% if user_logged_in %}
 <ul>
     {% for entry in user_booking_list %}
-    <li>On the {{entry.booked_date|date:"d."}} of {{entry.booked_date|date:"M"}}, for {{entry.booked_tables}} table, at
+    <!-- Modal cancel booking-->
+    <div class="modal fade js-ca-add-data-bs-target" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title js-ca-ti-add-data-bs-target">canceling reservation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"> Please, confirm that you want to cancel your reservation<br>for the
+                    {{entry.booked_date|date:"d."}} of {{entry.booked_date|date:"M"}} for {{entry.booked_tables}}
+                    {% if entry.booked_tables == 1 %}
+                    table
+                    {% else %}
+                    tables
+                    {% endif %}, at {{entry.booked_time}} o'clock.
+                </div>
+                <div class="modal-footer d-flex justify-content-around">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">keep reservation</button>
+                    <form action="cancelbooking/" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <input type="hidden" name="booking_date" value="{{entry.booked_date|date:'Y-m-d'}}">
+                        <input type="hidden" name="time_slot" value="{{entry.booked_time}}">
+                        <input type="hidden" name="num_tables" value="{{entry.booked_tables}}">
+                        <input type="submit" value="cancel reservation" class="btn btn-danger"
+                            title="cancel your booking" aria-label="cancel your booking">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal amend booking-->
+    <div class="modal fade js-am-add-data-bs-target" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title js-am-ti-add-data-bs-target">amend reservation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="amendbooking/" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <input type="hidden" name="original-date" value="{{entry.booked_date|date:'Y-m-d'}}">
+                        <input type="hidden" name="original-time" value="{{entry.booked_time}}">
+                        <input type="hidden" name="original-table" value="{{entry.booked_tables}}">
+                        <p>You can change the reservation time and the table number for your reservation.</p>
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>reservation date</th>
+                                    <th>reservation time</th>
+                                    <th>reserved table(s)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">{{entry.booked_date|date:'Y-m-d'}}</td>
+                                    <input type="hidden" name="booking_date" value="{{entry.booked_date|date:'Y-m-d'}}">
+                                    <td class="text-center">
+                                        <select value="{{entry.booked_time}}" name="time_slot" class="amendTimeJs"
+                                            data-booking-date="{{entry.booked_date|date:'Y-m-d'}}">
+                                            <option selected value="{{entry.booked_time}}">
+                                                {{entry.booked_time}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                    <td class="text-center">
+                                        <select value="{{entry.booked_tables}}" name="num_tables">
+                                            <option selected value="{{entry.booked_tables}}">{{entry.booked_tables}}
+                                            </option>
+                                        </select> <mark
+                                            title="Note: to increase table number, select 'reservation time' first.">*</mark>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><em>* Note: to increase 'reserved table(s)', select 'reservation time' first.</em>
+                        </p>
+                        <div class="modal-footer d-flex justify-content-around">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">keep
+                                reservation</button>
+                            <input type="submit" value="amend reservation" class="btn btn-success"
+                                title="amend reservation" aria-label="amend reservation">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- list reservations if user has any -->
+    <li class="pb-2">On the {{entry.booked_date|date:"d."}} of {{entry.booked_date|date:"M"}}, for
+        {{entry.booked_tables}}
+        {% if entry.booked_tables == 1 %}
+        table
+        {% else %}
+        tables
+        {% endif %}
+        , at
         {{entry.booked_time}} o'clock. You can
-        <form action="cancelbooking/" method="post" class="d-inline">
-            {% csrf_token %}
-            <input type="hidden" name="booking_date" value="{{entry.booked_date|date:'Y-m-d'}}">
-            <input type="hidden" name="time_slot" value="{{entry.booked_time}}">
-            <input type="hidden" name="num_tables" value="{{entry.booked_tables}}">
-            <input type="submit" value="cancel" class="btn btn-danger btn-sm">
-        </form>
+        <button type="button" class="btn btn-danger btn-sm js-ca-btn-add-data-bs-target" data-bs-toggle="modal"
+            title="cancel your booking" aria-label="cancel your booking">
+            cancel
+        </button>
+        or
+        <button type="button" class="btn btn-success btn-sm js-am-btn-add-data-bs-target" data-bs-toggle="modal"
+            title="amend your booking" aria-label="amend your booking">
+            amend
+        </button>
+        your reservation.
     </li>
     {% endfor%}
 </ul>
@@ -76,7 +177,8 @@
                 <label for="bookingTable">number of table(s) :</label>
             </div>
             <h3 class="h5">4. submit your reservation:</h3>
-            <input id="submitBookingButton" type="submit" value="Submit" class="btn btn-primary">
+            <input id="submitBookingButton" type="submit" value="Submit" class="btn btn-primary"
+                title="submit your reservation" aria-label="submit your reservation">
         </form>
     </div>
     {% else %}
@@ -90,7 +192,9 @@
             <div class="row md-break">
                 <div class="col-1 d-grid md-break">
                     <button type="button" class="btn btn-primary disabled w-100" id="previous-week-button"
-                        title="previous week"><span class="text-rotate">previous <i class="bi bi-box-arrow-in-left"></i>
+                        aria-label="show available tables previous week"
+                        title="show available tables previous week"><span class="text-rotate">previous <i
+                                class="bi bi-box-arrow-in-left"></i>
                             week</span>
                     </button>
                 </div>
@@ -165,9 +269,7 @@
                             <tr>
                                 {% if this_week_dic.Thursday%}
                                 <td>Thursday</td>
-                                <td class="week_0" onclick="sayHello()">
-                                    {{ this_week_dic.Thursday.booking_date|date:"d. M Y" }}
-                                </td>
+                                <td class="week_0">{{ this_week_dic.Thursday.booking_date|date:"d. M Y" }}</td>
                                 <td>{{this_week_dic.Thursday.time_slot_12}}</td>
                                 <td>{{this_week_dic.Thursday.time_slot_14}}</td>
                                 <td>{{this_week_dic.Thursday.time_slot_16}}</td>
@@ -1177,7 +1279,8 @@
                     </table>
                 </div>
                 <div class="col-1 d-grid md-break">
-                    <button type="button" class="btn btn-primary w-100" id="next-week-button" title="next week">
+                    <button type="button" class="btn btn-primary w-100" id="next-week-button"
+                        title="show available tables next week" aria-label="show available tables next week">
                         <span class="text-rotate">next <i class="bi bi-box-arrow-in-right"></i> week</span>
                     </button>
                 </div>
@@ -1186,6 +1289,5 @@
         </div>
     </div>
 </div>
-{% load static %}
-<script src="{% static 'javascript/set_booking_marker.js' %}" type="module"></script>
+
 {% endblock content %}

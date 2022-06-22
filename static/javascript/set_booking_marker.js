@@ -7,6 +7,7 @@ import {
   setFormRightMaxMinTable,
   nextWeekButton,
   previousWeekButton,
+  modalBootstrapId,
 } from "./helper_functions.js";
 /// <<< END import functions from helper_functions.js ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -58,6 +59,8 @@ oldBookingDate = setFormRightTimeSlot(
 );
 // set the initial values for the available table select list
 formTableInput();
+// sets a unique id for Bootstrap button to Modal
+modalBootstrapId();
 /// <<< END calling functions ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /// >>> START add event listener ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -125,4 +128,106 @@ document.getElementById("previous-week-button").addEventListener(
   },
   false
 );
+// add eventlistener to amend reservation time "focus"
+let amendTimeJsFocus = document.getElementsByClassName("amendTimeJs");
+for (let i = 0; i < amendTimeJsFocus.length; i++) {
+  amendTimeJsFocus[i].onfocus = function () {
+    amendTime(this);
+  };
+}
+// add eventlistener to amend reservation time "click"
+let amendTimeJsClick = document.getElementsByClassName("amendTimeJs");
+for (let i = 0; i < amendTimeJsClick.length; i++) {
+  amendTimeJsClick[i].onclick = function () {
+    amendTable(this);
+  };
+}
 /// <<< END add event listener //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function amendTime(booking) {
+  // remove all children
+  while (booking.hasChildNodes()) {
+    booking.removeChild(booking.firstChild);
+  }
+  let bookingDate = booking.getAttribute("data-booking-date");
+  let timeValueArray = ["date, don't use", "12", "14", "16", "18", "20", "22"];
+  let timeTextArray = [
+    "date, don't use",
+    "12:00",
+    "14:00",
+    "16:00",
+    "18:00",
+    "20:00",
+    "22:00",
+  ];
+  for (let week = 0; week < availableTablesData.length; week++) {
+    for (let day = 0; day < availableTablesData[week].length; day++) {
+      if (bookingDate == availableTablesData[week][day][0]) {
+        for (
+          let time = 1;
+          time < availableTablesData[week][day].length;
+          time++
+        ) {
+          if (0 < parseInt(availableTablesData[week][day][time])) {
+            let option = document.createElement("option");
+            option.setAttribute(
+              "value",
+              timeValueArray[time] +
+                parseInt(availableTablesData[week][day][time])
+            );
+            // option.setAttribute(
+            //   "data-table-number",
+            //   availableTablesData[week][day][time]
+            // );
+            option.innerText = timeTextArray[time];
+            booking.insertAdjacentElement("beforeend", option);
+            // console.log(timeTextArray[time]);
+            // booking.setAttribute(
+            //   "data-table-num",
+            //   parseInt(availableTablesData[week][day][time])
+            // );
+          } else {
+            let option = document.createElement("option");
+            option.setAttribute("value", timeValueArray[time]);
+            option.innerText = timeTextArray[time];
+            // console.log(timeTextArray[time]);
+            option.setAttribute("class", "bg-secondary bg-opacity-25");
+            option.setAttribute("value", "");
+            option.setAttribute("disabled", "");
+            option.setAttribute(
+              "title",
+              "Sorry, there are no tables available at this time."
+            );
+            booking.insertAdjacentElement("beforeend", option);
+          }
+        }
+      }
+    }
+  }
+}
+
+// console.log(`the day is ${availableTablesData[week][day][0]}`);
+// console.log(booking);
+// console.log(bookingDate);
+
+function amendTable(timeSlot) {
+  let tableElement = timeSlot.parentNode.nextElementSibling.firstElementChild;
+  while (tableElement.hasChildNodes()) {
+    tableElement.removeChild(tableElement.firstChild);
+  }
+  let selectedTimeSlot = timeSlot.value;
+  let tableNumber = selectedTimeSlot.slice(2);
+  tableNumber = parseInt(tableNumber);
+  let postTimeSlot = selectedTimeSlot.slice(0, 2);
+
+  timeSlot.removeAttribute("value");
+  timeSlot.setAttribute("value", postTimeSlot);
+  selectedTimeSlot = timeSlot.value;
+
+  for (let table = 1; table <= tableNumber; table++) {
+    let tableOption = document.createElement("option");
+    tableOption.setAttribute("value", table);
+    tableOption.innerText = table;
+    tableElement.insertAdjacentElement("beforeend", tableOption);
+  }
+}

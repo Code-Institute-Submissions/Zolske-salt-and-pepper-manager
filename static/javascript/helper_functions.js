@@ -365,3 +365,37 @@ export function nextWeekButton(
     availableTablesData
   );
 }
+
+// >>> START modalBootstrapId ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Adds a unique id to the modal buttons and modals itself for canceling  and amending reservations.
+ * Bootstrap needs them to identify button to modal
+ */
+export function modalBootstrapId() {
+  let cancelButton = document.getElementsByClassName(
+    "js-ca-btn-add-data-bs-target"
+  );
+  let cancelModal = document.getElementsByClassName("js-ca-add-data-bs-target");
+  let cancelTitle = document.getElementsByClassName(
+    "js-ca-ti-add-data-bs-target"
+  );
+  let amendButton = document.getElementsByClassName(
+    "js-am-btn-add-data-bs-target"
+  );
+  let amendModal = document.getElementsByClassName("js-am-add-data-bs-target");
+  let amendTitle = document.getElementsByClassName(
+    "js-am-ti-add-data-bs-target"
+  );
+  // loop through the total number of 'cancelButton' classes to add attributes,
+  // number for amend should be the same
+  for (let i = 0; i < cancelButton.length; i++) {
+    cancelButton[i].setAttribute("data-bs-target", "#cancelModal_" + i);
+    cancelModal[i].setAttribute("id", "cancelModal_" + i);
+    cancelModal[i].setAttribute("aria-labelledby", "cancelModalLabel_" + i);
+    cancelTitle[i].setAttribute("id", "cancelModalLabel_" + i);
+    amendButton[i].setAttribute("data-bs-target", "#amendModal_" + i);
+    amendModal[i].setAttribute("id", "amendModal_" + i);
+    amendModal[i].setAttribute("aria-labelledby", "amendModalLabel_" + i);
+    amendTitle[i].setAttribute("id", "amendModalLabel_" + i);
+  }
+}
