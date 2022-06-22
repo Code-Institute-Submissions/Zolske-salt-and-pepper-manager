@@ -4,7 +4,6 @@
 
 {% block content %}
 {% load static %}
-<script src="{% static 'javascript/set_booking_marker.js' %}" type="module"></script>
 <h1>Booking Page</h1>
 {% if has_bookings %}
 <hr>
@@ -1289,5 +1288,5 @@
         </div>
     </div>
 </div>
-
+<script src="{% static 'javascript/set_booking_marker.js' %}" type="module"></script>
 {% endblock content %}
