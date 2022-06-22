@@ -32,11 +32,3 @@
     } */
 
 }
-
-/* test if cloudinary is picking up changes */
-
-h1,
-h2,
-h3 {
-    background-color: crimson;
-}
