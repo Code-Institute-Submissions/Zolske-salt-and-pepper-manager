@@ -13,7 +13,7 @@
     <!-- css -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href='css/style.css'>
-    <title>{% block title %}Restaurant Manager{% endblock title %}</title>
+    <title>{% block title %}Salt And Pepper Restaurant{% endblock title %}</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center
               justify-content-lg-start">
-                    <a class="navbar-brand" href="{% url 'home' %}">Salt And Pepper restaurant</a>
+                    <a class="navbar-brand" href="{% url 'home' %}">Salt And Pepper Restaurant</a>
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center
           mb-md-0">
                         {% if user.is_authenticated %}
