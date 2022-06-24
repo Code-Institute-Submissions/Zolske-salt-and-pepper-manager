@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import MenuStarter, MenuMain, MenuDessert, MenuDrinks
+from .models import MenuStarter, MenuMain, MenuDessert, MenuDrinks, MenuAlcohol
 
 
 class MenuStarterAdmin(admin.ModelAdmin):
@@ -29,9 +29,16 @@ class MenuDrinksAdmin(admin.ModelAdmin):
         "drink",
         "price"
     ]
-    
+
+class MenuAlcoholAdmin(admin.ModelAdmin):
+    model = MenuAlcohol
+    list_display = [
+        "drink",
+        "price"
+    ]
     
 admin.site.register(MenuStarter, MenuStarterAdmin)
 admin.site.register(MenuMain, MenuMainAdmin)
 admin.site.register(MenuDessert, MenuDessertAdmin)
 admin.site.register(MenuDrinks, MenuDrinksAdmin)
+admin.site.register(MenuAlcohol, MenuAlcoholAdmin)

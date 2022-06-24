@@ -1,0 +1,114 @@
+<!-- home page, starting page when user langs on website, inherits from 'base.html' -->
+{% extends "base.html" %}
+
+{% block title %}Menu{% endblock title %}
+
+{% block content %}
+<h1 id="top-menu">Menu</h1>
+{% block content_menu %}
+<!-- starters -->
+{% if starter %}
+<hr>
+<h2>Starters</h2>
+{% for entry in starter %}
+<div class="card d-inline-block mx-2 my-1" style="width: 18rem;">
+    <img height="286" width="286" src="{{ entry.image }}" class="card-img-top menu-pictures" alt="entry.alt">
+    <div class="card-body text-height-menu">
+        <h5 class="card-title">{{entry.dish}}</h5>
+        <p class="card-text">{{entry.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">allergies: {{entry.allergies}}</li>
+    </ul>
+    <div class="card-body">
+        <li class="list-group-item">Price: £ {{entry.price}}</li>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+<!-- main dishes-->
+{% if main %}
+<hr>
+<a href="#top-menu"><i class="bi bi-hand-index-thumb"></i> top</a>
+<h2>Main Dishes</h2>
+{% for entry in main %}
+<div class="card d-inline-block mx-2 my-1" style="width: 18rem;">
+    <img height="286" width="286" src="{{ entry.image }}" class="card-img-top menu-pictures" alt="entry.alt">
+    <div class="card-body text-height-menu">
+        <h5 class="card-title">{{entry.dish}}</h5>
+        <p class="card-text">{{entry.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">allergies: {{entry.allergies}}</li>
+    </ul>
+    <div class="card-body">
+        <li class="list-group-item">Price: £ {{entry.price}}</li>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+<!--desserts-->
+{% if dessert %}
+<hr>
+<a href="#top-menu"><i class="bi bi-hand-index-thumb"></i> top</a>
+<h2>Desserts</h2>
+{% for entry in dessert %}
+<div class="card d-inline-block mx-2 my-1" style="width: 18rem;">
+    <img height="286" width="286" src="{{ entry.image }}" class="card-img-top menu-pictures" alt="entry.alt">
+    <div class="card-body text-height-menu">
+        <h5 class="card-title">{{entry.dish}}</h5>
+        <p class="card-text">{{entry.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">allergies: {{entry.allergies}}</li>
+    </ul>
+    <div class="card-body">
+        <li class="list-group-item">Price: £ {{entry.price}}</li>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+<!--drinks-->
+{% if drink %}
+<hr>
+<a href="#top-menu"><i class="bi bi-hand-index-thumb"></i> top</a>
+<h2>Drinks</h2>
+{% for entry in drink %}
+<div class="card d-inline-block mx-2 my-1" style="width: 18rem;">
+    <img height="286" width="286" src="{{ entry.image }}" class="card-img-top menu-pictures" alt="entry.alt">
+    <div class="card-body text-height-menu">
+        <h5 class="card-title">{{entry.dish}}</h5>
+        <p class="card-text">{{entry.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">allergies: {{entry.allergies}}</li>
+    </ul>
+    <div class="card-body">
+        <li class="list-group-item">Price: £ {{entry.price}}</li>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+<!--alcohol-->
+{% if alcohol %}
+<hr>
+<a href="#top-menu"><i class="bi bi-hand-index-thumb"></i> top</a>
+<h2>Alcohol</h2>
+{% for entry in alcohol %}
+<div class="card d-inline-block mx-2 my-1" style="width: 18rem;">
+    <img height="286" width="286" src="{{ entry.image }}" class="card-img-top menu-pictures" alt="entry.alt">
+    <div class="card-body text-height-menu">
+        <h5 class="card-title">{{entry.dish}}</h5>
+        <p class="card-text">{{entry.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">allergies: {{entry.allergies}}</li>
+    </ul>
+    <div class="card-body">
+        <li class="list-group-item">Price: £ {{entry.price}}</li>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock content_menu %}
+{% endblock content %}

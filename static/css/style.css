@@ -4,8 +4,16 @@
 
 .text-rotate {
     writing-mode: vertical-rl;
-    /* font-size: 2vw; */
 }
+
+.menu-pictures {
+    object-fit: cover;
+}
+
+.text-height-menu {
+    height: 170px;
+}
+
 
 @media only screen and (max-width: 768px) {
     .md-break {
@@ -23,12 +31,5 @@
 @media only screen and (max-width: 992px) {
     .ld-break {
         display: block;
-        /* width: 100%; */
     }
-
-    /* .text-rotate {
-        writing-mode: unset;
-        font-size: large;
-    } */
-
 }
