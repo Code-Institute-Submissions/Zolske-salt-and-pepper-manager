@@ -158,7 +158,7 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-# ============= before deponing to heroku, py manage.py collectstatic
+# ============= before deponing to heroku, py manage.py collectstatic =========================================
 
 # comment this lines when deploying to heroku!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 STATIC_URL = '/static/'
