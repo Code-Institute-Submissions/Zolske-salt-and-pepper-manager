@@ -139,10 +139,6 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # django_project/settings.py
-STATIC_URL = '/static/'
-#STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # use whitenoise because cloudinary not working!!!
 
 MEDIA_URL = '/media/'
 #DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -162,5 +158,13 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-# whitenoise
-STATIC_ROOT = BASE_DIR / "static"
+# ============= before deponing to heroku, py manage.py collectstatic
+
+# comment this lines when deploying to heroku!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' # use whitenoise because cloudinary is not working!!!
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # use whitenoise because cloudinary is not working!!!
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # use whitenoise because cloudinary is not working!!!
+
+# uncomment this line when deploying to heroku !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! whitenoise
+# STATIC_ROOT = BASE_DIR / "static"
