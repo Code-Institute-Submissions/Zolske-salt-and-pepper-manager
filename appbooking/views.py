@@ -117,15 +117,7 @@ def amend_booking(request):
     available_db_time_slot = 'time_slot_' + amend_time_slot_unformatted[:2]
     amend_num_tables = int(request.POST['num_tables'])
     user_now = request.user
-    
-    print(f"original_date {original_date}")
-    print(f"original_time {original_time}")
-    print(f"original_table {original_table}")
-    
-    print(f"amend_booking_date {amend_booking_date}")
-    print(f"amend_time_slot {amend_time_slot}")
-    print(f"amend_num_tables {amend_num_tables}")
-    
+        
     # find the id according to the user, booked date, booked time and booked table
     # (is necessarily, in case there are more then one booking with the same date, time, table)
     id_user_booking = User_Bookings.objects.filter(
@@ -176,5 +168,13 @@ def amend_booking(request):
     
     return HttpResponseRedirect(reverse('bookings'))
     
+def delete_old_bookings():
+    # find all bookings
+    booking_list = User_Bookings.objects.all()
+    for entry in booking_list:
+        # if booking is older than today, delete it
+        if entry.booked_date.strftime("%Y-%m-%d") < datetime.datetime.now().strftime("%Y-%m-%d"):
+            entry.delete()
+
     
-   
+delete_old_bookings()
