@@ -47,8 +47,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd party apps    
     'cloudinary',
-    "crispy_forms",
-    "crispy_bootstrap5",
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'django_extensions',
     # django_project apps
     'apppages.apps.ApppagesConfig', 
     'appaccounts.apps.AppaccountsConfig',
@@ -163,9 +164,9 @@ INTERNAL_IPS = [
 # ============= before deponing to heroku, py manage.py collectstatic =========================================
 
 # comment this lines when deploying to heroku!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' # use whitenoise because cloudinary is not working!!!
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # use whitenoise because cloudinary is not working!!!
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # use whitenoise because cloudinary is not working!!!
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' # use whitenoise because cloudinary is not working!!!
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # use whitenoise because cloudinary is not working!!!
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # use whitenoise because cloudinary is not working!!!
 
 # uncomment this line when deploying to heroku !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! whitenoise
-STATIC_ROOT = BASE_DIR / "static"
+#STATIC_ROOT = BASE_DIR / "static"
