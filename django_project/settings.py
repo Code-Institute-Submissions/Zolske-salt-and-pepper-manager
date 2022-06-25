@@ -161,12 +161,21 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+# connect to Send Grid for password reset
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_HOST_USER = "apikey"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 # ============= before deponing to heroku, py manage.py collectstatic =========================================
 
 # comment this lines when deploying to heroku!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' # use whitenoise because cloudinary is not working!!!
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # use whitenoise because cloudinary is not working!!!
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # use whitenoise because cloudinary is not working!!!
+#STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' # use whitenoise because cloudinary is not working!!!
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # use whitenoise because cloudinary is not working!!!
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # use whitenoise because cloudinary is not working!!!
 
 # uncomment this line when deploying to heroku !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! whitenoise
-#STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = BASE_DIR / "static"
