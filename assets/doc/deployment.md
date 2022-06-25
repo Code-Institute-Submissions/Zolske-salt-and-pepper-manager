@@ -9,3 +9,9 @@ py manage.py collectstatic
 ```
 py manage.py graph_models -a -g --arrow-shape normal -o assets/doc/images/relational_database_model.png
 ```
+
+3. create or update requirements.txt
+
+```
+pip freeze > requirements.txt
+```
