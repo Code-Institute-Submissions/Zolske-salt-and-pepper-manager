@@ -4,6 +4,7 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
+{% load static %}
 
 <div class="container col-xxl-8 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -28,4 +29,50 @@
         </div>
     </div>
 </div>
+
+<!-- customer reviews -->
+<h2 class="text-center">What our guests say</h2>
+<div id="carouselExampleCaptions" class="carousel  carousel-dark slide container col-xxl-8 px-4 py-5"
+    data-bs-ride="false">
+    <div class="carousel-indicators">
+        {% for entry in counter %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{entry}}" aria-current="true"
+            class="findMe" aria-label="Slide {{entry}}"></button>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner">
+        {% for entry in user_comments %}
+        {{entry.id}}
+        <div class="carousel-item findMeTwo" data-bs-interval="100">
+            <div class="carousel-caption ">
+                <img src="{{entry.picture}}" alt="picture of the person how reviewed the restaurant"
+                    class="profile-picture-review">
+                <hr>
+                <h3>{{entry.name}}</h3>
+                <hr>
+                <p>rating : {{entry.rating}} stars</p>
+                <hr>
+                <p>visited : {{entry.date}}</p>
+                <hr>
+                <p>{{entry.review}}</p>
+            </div>
+            <img src="https://res.cloudinary.com/diwuglogr/image/upload/v1656251685/salt_and_pepper/review_background_deuat6.webp"
+                class="d-block w-100" alt="greyed out picture of an table with plates, which can be seen from the top">
+        </div>
+        {% endfor %}
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- How to find us -->
+<h2 class="text-center">How to find us</h2>
+<script src="{% static 'javascript/carousel_review.js' %}"></script>
 {% endblock content %}

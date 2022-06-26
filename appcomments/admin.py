@@ -8,6 +8,7 @@ class commentsAdmin(admin.ModelAdmin):
     list_display = [
         "author",
         "approved",
+        "name",
         "rating",
         "date",
     ]

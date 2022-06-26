@@ -17,12 +17,13 @@ def comments(request):
 
 def add_comments(request):
     comment_name = request.user
+    nameOfauthor = request.user
     comment_picture = request.user.profile_picture
     comment_date = request.POST['date']
     comment_rating = request.POST['rating']
     comment_review = request.POST['review']
 
-    new_record = Comments(author=comment_name, picture=comment_picture, date=comment_date, rating=comment_rating, review=comment_review)
+    new_record = Comments(author=comment_name, name=nameOfauthor, picture=comment_picture, date=comment_date, rating=comment_rating, review=comment_review)
     new_record.save()
     
     return HttpResponseRedirect(reverse('comment'))
