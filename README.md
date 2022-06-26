@@ -1,4 +1,4 @@
-# The Salt and Pepper Restaurant
+![The Salt and Pepper Restaurant Logo](assets/doc/images/logo-doc.webp)![The Salt and Pepper Restaurant ](assets/doc/images/salt_and_pepper_title.png)
 
 The restaurant side allows the user to sign up for an free account and manage his or here reservations.
 
