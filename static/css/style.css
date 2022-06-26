@@ -93,6 +93,10 @@ h1 {
     font-family: 'Pacifico', serif;
 }
 
+h1 {
+    margin-bottom: 2rem;
+}
+
 @media only screen and (max-width: 768px) {
     .md-break {
         display: block;
