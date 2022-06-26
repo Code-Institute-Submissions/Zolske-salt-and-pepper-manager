@@ -1,0 +1,77 @@
+<!-- home page, starting page when user langs on website, inherits from 'base.html' -->
+{% extends "base.html" %}
+
+{% block title %}User Settings{% endblock title %}
+
+{% block content %}
+{% load static %}
+<h2>Upload Your Profile Picture</h2>
+<p>Here you can upload a new profile picture or change your old one.</p>
+<ul>
+    <li>the image file has to be less than 2MB</li>
+    <li>the image will be scaled down to 150 pixel</li>
+    <li>you can crop the image before uploading it</li>
+</ul>
+
+<button id="upload_widget" class="btn btn-outline-dark p-2 m-2 ">
+    upload image files
+</button>
+<img src="https://res.cloudinary.com/diwuglogr/image/upload/v1656221691/salt_and_pepper/default-user-icon-8_jddbuo.jpg"
+    alt="new profile picture" id="check_new_profile" class="profile-picture">
+<form action="user_settings_profile/" method="post" class="p-2 m-2 d-inline-block">
+    {% csrf_token %}
+    <input type="hidden" name="new_profile_picture" id="picture_form" value="">
+    <input id="button_form" type="submit" value="Submit New Profile Picture" class="btn btn-primary" disabled
+        title="submit new profile picture" aria-label="submit new profile picture">
+</form>
+
+
+<!-- cloudinary upload widget -->
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript">
+</script>
+
+<!-- local upload instantiation -->
+<!-- <script src="upload_widget.js" type="text/javascript">
+</script> -->
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript">
+</script>
+<!-- <script>
+    const cloudName = "diwuglogr"; // replace with your own cloud name
+    const uploadPreset = "bjio1tzi"; // replace with your own upload preset
+    const myWidget = cloudinary.createUploadWidget({
+            cloudName: cloudName,
+            uploadPreset: uploadPreset,
+            cropping: true, //add a cropping step
+            // sources: [ "local", "url"], // restrict the upload sources to URL and local files
+            multiple: false, //restrict upload to a single file
+            folder: "salt_pepper_profile", //upload files to the specified folder
+            // clientAllowedFormats: ["images"], //restrict uploading to image files only
+            maxImageFileSize: 2000000, //restrict file size to less than 2MB
+            maxImageWidth: 150, //Scales the image down to a width of 150 pixels before uploading
+        },
+        (error, result) => {
+            if (!error && result && result.event === "success") {
+                console.log("Done! Here is the image info: ", result.info);
+                document
+                    .getElementById("picture_form")
+                    .setAttribute("value", result.info.secure_url);
+                document
+                    .getElementById("check_new_profile")
+                    .setAttribute("src", result.info.secure_url);
+                document
+                    .getElementById("button_form")
+                    .removeAttribute("disabled");
+            }
+        }
+    );
+
+    document.getElementById("upload_widget").addEventListener(
+        "click",
+        function () {
+            myWidget.open();
+        },
+        false
+    );
+</script> -->
+<script src="{% static 'javascript/profile_picture.js' %}"></script>
+{% endblock content %}
