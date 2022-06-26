@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'appaccounts.apps.AppaccountsConfig',
     'appbooking.apps.AppbookingConfig', 
     'appmenu.apps.AppmenuConfig',
+    'appcomments.apps.AppcommentsConfig',
 ]
 
 MIDDLEWARE = [
