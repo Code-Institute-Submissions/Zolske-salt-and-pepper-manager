@@ -5,74 +5,76 @@
 
 {% block content %}
 {% load static %}
-
-<div class="container col-xxl-8 px-4 py-5">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6">
-            <img src="https://res.cloudinary.com/diwuglogr/image/upload/v1656087553/salt_and_pepper/jay-wennington-N_Y88TWmGwA-unsplash_czcyaa.jpg"
-                class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
-        </div>
-        <div class="col-lg-6">
-            <h1 class="display-5 fw-bold lh-1 mb-3">The Salt And Pepper Restaurant</h1>
-            <p class="lead">The "Salt and Pepper" is an amazing restaurant where you can have a really good time with
-                your friends and family. Our award winning menu will not disappoint you!</p>
-            <p>Sign up and book a table or have a look at our menu.</p>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                {% if user.is_authenticated %}
-                <a href="{% url 'bookings' %}" class="btn btn-outline-dark me-2">reserve a table</a>
-                {% else %}
-                <a href="{% url 'login' %}" class="btn btn-outline-dark me-2">log in</a>
-                <a href="{% url 'signup' %}" class="btn btn-outline-dark me-2">sign up</a>
-                {% endif %}
-                <a href="{% url 'menu' %}" class="btn btn-outline-dark me-2">see our menu</a>
+<main>
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="https://res.cloudinary.com/diwuglogr/image/upload/v1656087553/salt_and_pepper/jay-wennington-N_Y88TWmGwA-unsplash_czcyaa.jpg"
+                    class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">The Salt And Pepper Restaurant</h1>
+                <p class="lead">The "Salt and Pepper" is an amazing restaurant where you can have a really good time
+                    with
+                    your friends and family. Our award winning menu will not disappoint you!</p>
+                <p>Sign up and book a table or have a look at our menu.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'bookings' %}" class="btn btn-outline-dark me-2">reserve a table</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-outline-dark me-2">log in</a>
+                    <a href="{% url 'signup' %}" class="btn btn-outline-dark me-2">sign up</a>
+                    {% endif %}
+                    <a href="{% url 'menu' %}" class="btn btn-outline-dark me-2">see our menu</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- customer reviews -->
-<h2 class="text-center">What our guests say</h2>
-<div id="carouselExampleCaptions" class="carousel  carousel-dark slide container col-xxl-8 px-4 py-5"
-    data-bs-ride="false">
-    <div class="carousel-indicators">
-        {% for entry in counter %}
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{entry}}" aria-current="true"
-            class="findMe" aria-label="Slide {{entry}}"></button>
-        {% endfor %}
-    </div>
-    <div class="carousel-inner">
-        {% for entry in user_comments %}
-        {{entry.id}}
-        <div class="carousel-item findMeTwo" data-bs-interval="100">
-            <div class="carousel-caption ">
-                <img src="{{entry.picture}}" alt="picture of the person how reviewed the restaurant"
-                    class="profile-picture-review">
-                <hr>
-                <h3>{{entry.name}}</h3>
-                <hr>
-                <p>rating : {{entry.rating}} stars</p>
-                <hr>
-                <p>visited : {{entry.date}}</p>
-                <hr>
-                <p>{{entry.review}}</p>
-            </div>
-            <img src="https://res.cloudinary.com/diwuglogr/image/upload/v1656251685/salt_and_pepper/review_background_deuat6.webp"
-                class="d-block w-100" alt="greyed out picture of an table with plates, which can be seen from the top">
+    <!-- customer reviews -->
+    <h2 class="text-center">What our guests say</h2>
+    <div id="carouselExampleCaptions" class="carousel  carousel-dark slide container col-xxl-8 px-4 py-5"
+        data-bs-ride="false">
+        <div class="carousel-indicators">
+            {% for entry in counter %}
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{entry}}"
+                aria-current="true" class="findMe" aria-label="Slide {{entry}}"></button>
+            {% endfor %}
         </div>
-        {% endfor %}
+        <div class="carousel-inner">
+            {% for entry in user_comments %}
+            {{entry.id}}
+            <div class="carousel-item findMeTwo" data-bs-interval="100">
+                <div class="carousel-caption ">
+                    <img src="{{entry.picture}}" alt="picture of the person how reviewed the restaurant"
+                        class="profile-picture-review">
+                    <hr>
+                    <h3>{{entry.name}}</h3>
+                    <hr>
+                    <p>rating : {{entry.rating}} stars</p>
+                    <hr>
+                    <p>visited : {{entry.date}}</p>
+                    <hr>
+                    <p>{{entry.review}}</p>
+                </div>
+                <img src="https://res.cloudinary.com/diwuglogr/image/upload/v1656251685/salt_and_pepper/review_background_deuat6.webp"
+                    class="d-block w-100"
+                    alt="greyed out picture of an table with plates, which can be seen from the top">
+            </div>
+            {% endfor %}
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-
-<!-- How to find us -->
-<h2 class="text-center">How to find us</h2>
+</main>
 <script src="{% static 'javascript/carousel_review.js' %}"></script>
 {% endblock content %}

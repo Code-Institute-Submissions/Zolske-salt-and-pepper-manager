@@ -4,66 +4,68 @@
 {% block title %}Review{% endblock title %}
 
 {% block content %}
-<h2>Write a Review</h2>
-<p>The comment will be reviewed by the owner and becomes visible on the front page after it has been approved.</p>
-<form action="add_comment" method="post">
-    {% csrf_token %}
-    <div class="d-md-flex">
-        <div>
-            <div class="form-floating pb-2 m-1">
-                <input type="date" name="date" max="{% now 'Y-m-d' %}" id="reviewDate" class="form-select"
-                    aria-label="pick the date when you have visited us" required>
-                <label for="reviewDate">date&nbsp;of&nbsp;your&nbsp;visit&nbsp;:</label>
+<main>
+    <h2>Write a Review</h2>
+    <p>The comment will be reviewed by the owner and becomes visible on the front page after it has been approved.</p>
+    <form action="add_comment" method="post">
+        {% csrf_token %}
+        <div class="d-md-flex">
+            <div>
+                <div class="form-floating pb-2 m-1">
+                    <input type="date" name="date" max="{% now 'Y-m-d' %}" id="reviewDate" class="form-select"
+                        aria-label="pick the date when you have visited us" required>
+                    <label for="reviewDate">date&nbsp;of&nbsp;your&nbsp;visit&nbsp;:</label>
+                </div>
+                <div class="form-floating pb-2 m-1">
+                    <select name="rating" required class="form-select" id="floatingSelect"
+                        aria-label="rate your experience, 5 stars are the best rating">
+                        <option value="1">1 star</option>
+                        <option value="2">2 stars</option>
+                        <option value="3">3 stars</option>
+                        <option value="4">4 stars</option>
+                        <option value="5" selected>5 stars</option>
+                    </select>
+                    <label for="floatingSelect">rate&nbsp;your&nbsp;experience&nbsp;:</label>
+                </div>
+                <input id="button_form" type="submit" value="Submit Review"
+                    class="btn btn-primary pb-2 m-1 d-none d-md-inline-block " title="Submit Review"
+                    aria-label="submit Review">
             </div>
-            <div class="form-floating pb-2 m-1">
-                <select name="rating" required class="form-select" id="floatingSelect"
-                    aria-label="rate your experience, 5 stars are the best rating">
-                    <option value="1">1 star</option>
-                    <option value="2">2 stars</option>
-                    <option value="3">3 stars</option>
-                    <option value="4">4 stars</option>
-                    <option value="5" selected>5 stars</option>
-                </select>
-                <label for="floatingSelect">rate&nbsp;your&nbsp;experience&nbsp;:</label>
+            <div class="form-floating m-1 flex-grow-1 align-items-stretch">
+                <textarea name="review" class="form-control" id="floatingTextareaComment" required></textarea>
+                <label for="floatingTextareaComment">write&nbsp;a&nbsp;comment&nbsp;:</label>
             </div>
-            <input id="button_form" type="submit" value="Submit Review"
-                class="btn btn-primary pb-2 m-1 d-none d-md-inline-block " title="Submit Review"
-                aria-label="submit Review">
         </div>
-        <div class="form-floating m-1 flex-grow-1 align-items-stretch">
-            <textarea name="review" class="form-control" id="floatingTextareaComment" required></textarea>
-            <label for="floatingTextareaComment">write&nbsp;a&nbsp;comment&nbsp;:</label>
-        </div>
-    </div>
-    <input id="button_form" type="submit" value="Submit Review"
-        class="btn btn-primary pb-2 m-1 d-inline-block d-md-none" title="Submit Review" aria-label="submit Review">
-</form>
+        <input id="button_form" type="submit" value="Submit Review"
+            class="btn btn-primary pb-2 m-1 d-inline-block d-md-none" title="Submit Review" aria-label="submit Review">
+    </form>
 
 
-{% if user_comments %}
-<h2 class="mt-4">Your Previous Review</h2>
-{% for entry in user_comments%}
-<div class="accordion mb-1" id="accord_{{entry.id}}">
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="heading_{{entry.id}}">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse_{{entry.id}}" aria-expanded="true" aria-controls="collapse_{{entry.id}}">
-                Your review from {{entry.date}} with an rating of {{entry.rating}} stars.
-                {% if entry.approved %}
-                <br>Has been approved by the owner.
-                {% else %}
-                <br>Has not yet been approved by the owner.
-                {% endif %}
-            </button>
-        </h2>
-        <div id="collapse_{{entry.id}}" class="accordion-collapse collapse" aria-labelledby="heading_{{entry.id}}"
-            data-bs-parent="#accord_{{entry.id}}">
-            <div class="accordion-body">
-                {{entry.review}}
+    {% if user_comments %}
+    <h2 class="mt-4">Your Previous Review</h2>
+    {% for entry in user_comments%}
+    <div class="accordion mb-1" id="accord_{{entry.id}}">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading_{{entry.id}}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse_{{entry.id}}" aria-expanded="true" aria-controls="collapse_{{entry.id}}">
+                    Your review from {{entry.date}} with an rating of {{entry.rating}} stars.
+                    {% if entry.approved %}
+                    <br>Has been approved by the owner.
+                    {% else %}
+                    <br>Has not yet been approved by the owner.
+                    {% endif %}
+                </button>
+            </h2>
+            <div id="collapse_{{entry.id}}" class="accordion-collapse collapse" aria-labelledby="heading_{{entry.id}}"
+                data-bs-parent="#accord_{{entry.id}}">
+                <div class="accordion-body">
+                    {{entry.review}}
+                </div>
             </div>
         </div>
     </div>
-</div>
-{% endfor%}
-{% endif %}
+    {% endfor%}
+    {% endif %}
+</main>
 {% endblock content %}
