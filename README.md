@@ -8,7 +8,9 @@ The side allows the owner to easily manage their restaurant and engage with his 
 
 *Click on the link to the* [Salt and Pepper](https://salt-and-pepper-manager.herokuapp.com/) *live website*
 
-![reserving a table](assets/doc/images/screenshot_home.jpg)
+![reserving a table](assets/doc/images/screenshot_home_2.jpg)  
+
+[mockup was generated with techsini.com](https://techsini.com/multi-mockup/index.php)
 
 ---
 
@@ -82,7 +84,18 @@ The side allows the owner to easily manage their restaurant and engage with his 
 
 ## 2. Technology's
 
-- HTML, CSS, JavaScript, Python, Django, Heroku, Jest, Bootstrap, Git, Cloudinary, Postgres
+#### The following technologies have been used for the project:
+
+- ![html](assets/doc/images/logos/html64x64.png) **HTML** *to give structure to the page and "mark" the content*
+- ![CSS](assets/doc/images/logos/css64x64.png)![Bootstrap](assets/doc/images/logos/bootstrap64x64.png) **CSS** & **Bootstrap** *to style the content and the page*  
+- ![JavaScript](assets/doc/images/logos/js64x64.png) **JavaScript** *to implement logic*  
+- ![python](assets/doc/images/logos/python64x64.png) ![Django](assets/doc/images/logos/django64x64.png) **Python** & **Django** *for the "backend"*  
+- ![Git](assets/doc/images/logos/git64x64.png) **Git** *for version control*  
+- ![GitHub](assets/doc/images/logos/github64x64.png) **GitHub** *to store the project*  
+- ![Cloudinary](assets/doc/images/logos/cloudinary64x64.png) **Cloudinary** *to store images online*  
+- ![Gunicorn](assets/doc/images/logos/gunicorn64x64.png) **Gunicorn** *as Python Web Server Gateway Interface*
+- ![Heroku](assets/doc/images/logos/heroku64x64.png) **Heroku** *to serve the project online*  
+- ![Postgres](assets/doc/images/logos/postgresql64x64.png) **PostgreSQL** *as database engine*
 
 ---
 
