@@ -30,52 +30,53 @@
     <div class="container">
         <header class="p-3 mb-3 border-bottom">
             <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center
-              justify-content-lg-start">
-                    <img height="80" width="80"
-                        src="https://res.cloudinary.com/diwuglogr/image/upload/v1656272885/salt_and_pepper/logo_cozruj.webp"
-                        alt="">
-                    <p class="navbar-title align-self-center">Salt And Pepper Restaurant</p>
-                    <!-- <a class="navbar-brand" href="{% url 'home' %}">Salt And
-                            Pepper Restaurant</a> -->
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"></ul>
+                <div class="d-flex flex-wrap justify-content-around">
+                    <div class="d-flex flex-wrap justify-content-around">
+                        <img height="80" width="80"
+                            src="https://res.cloudinary.com/diwuglogr/image/upload/v1656272885/salt_and_pepper/logo_cozruj.webp"
+                            alt="">
+                        <p class="navbar-title align-self-center text-center">Salt And Pepper Restaurant</p>
+                    </div>
                     {% if user.is_authenticated %}
+                    <!-- <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"></ul> -->
                     {% if user.profile_picture %}
-                    <img src="{{user.profile_picture}}" alt="user profile picture" class="profile-picture text-end">
-                    {% endif %}
-                    <div class="dropdown text-end">
-                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle user-menu"
-                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ user.username }}'s Menu
-                        </a>
-                        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
-                            <li><a class="dropdown-item" href="{% url 'home' %}">Home</a></li>
-                            {% if user.is_superuser %}
-                            <li><a class="dropdown-item" href='{% url "admin:index" %}'>Admin</a></li>
-                            {% endif %}
-                            <li><a class="dropdown-item" href="{% url 'menu' %}">Browse Our Menu</a></li>
-                            <li><a class="dropdown-item" href="{% url 'bookings' %}">Manage Your Booking</a>
-                            </li>
-                            <li><a class="dropdown-item" href="{% url 'comment' %}">Write A Review</a></li>
-                            <li><a class="dropdown-item" href="{% url 'user_settings' %}">Change Your Profile
-                                    Picture</a></li>
-                            <li><a class="dropdown-item" href="{% url 'password_change'%}">
-                                    Change Your Password</a></li>
-                        </ul>
+                    <div class="d-flex flex-wrap justify-content-around align-self-center">
+                        <img src="{{user.profile_picture}}" alt="user profile picture" class="profile-picture">
+                        {% endif %}
+                        <div class="dropdown align-self-center">
+                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle user-menu"
+                                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ user.username }}'s Menu
+                            </a>
+                            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+                                <li><a class="dropdown-item" href="{% url 'home' %}">Home</a></li>
+                                {% if user.is_superuser %}
+                                <li><a class="dropdown-item" href='{% url "admin:index" %}'>Admin</a></li>
+                                {% endif %}
+                                <li><a class="dropdown-item" href="{% url 'menu' %}">Browse Our Menu</a></li>
+                                <li><a class="dropdown-item" href="{% url 'bookings' %}">Manage Your Booking</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'comment' %}">Write A Review</a></li>
+                                <li><a class="dropdown-item" href="{% url 'user_settings' %}">Change Your Profile
+                                        Picture</a></li>
+                                <li><a class="dropdown-item" href="{% url 'password_change'%}">
+                                        Change Your Password</a></li>
+                            </ul>
+                        </div>
+                        <!-- </ul> -->
+                        {% else %}
+                        <div class="d-flex flex-wrap justify-content-around align-items-center">
+                            <a href="{% url 'home' %}" class="btn btn-outline-dark m-2">
+                                Home</a>
+                            <a href="{% url 'menu' %}" class="btn btn-outline-dark m-2">
+                                Menu</a>
+                            <a href="{% url 'login' %}" class="btn btn-outline-dark m-2">
+                                Log In</a>
+                            <a href="{% url 'signup' %}" class="btn btn-outline-dark m-2">Sign Up</a>
+                        </div>
+                        {% endif %}
                     </div>
-                    {% else %}
-                    </ul>
-                    <div class="text-end">
-                        <a href="{% url 'home' %}" class="btn btn-outline-dark me-2">
-                            Home</a>
-                        <a href="{% url 'menu' %}" class="btn btn-outline-dark me-2">
-                            Menu</a>
-                        <a href="{% url 'login' %}" class="btn btn-outline-dark me-2">
-                            Log In</a>
-                        <a href="{% url 'signup' %}" class="btn btn-outline-dark">Sign Up</a>
-                    </div>
-                    {% endif %}
                 </div>
             </div>
         </header>
