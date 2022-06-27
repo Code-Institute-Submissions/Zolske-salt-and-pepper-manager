@@ -39,8 +39,8 @@
                     </div>
                     {% if user.is_authenticated %}
                     <!-- <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"></ul> -->
-                    {% if user.profile_picture %}
                     <div class="d-flex flex-wrap justify-content-around align-self-center">
+                        {% if user.profile_picture %}
                         <img src="{{user.profile_picture}}" alt="user profile picture" class="profile-picture">
                         {% endif %}
                         <div class="dropdown align-self-center">
@@ -75,55 +75,62 @@
                                 Log In</a>
                             <a href="{% url 'signup' %}" class="btn btn-outline-dark m-2">Sign Up</a>
                         </div>
-                        {% endif %}
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </header>
+    </div>
+    <div class="container">
         <main>
             {% block content %}
             {% endblock content %}
-            <footer class="d-flex justify-content-around mt-4">
-                <address class="my-0">
-                    <table class="table table-sm tabel-contact my-1">
-                        <thead>
-                            <tr>
-                                <th class="text-center" colspan="2">address</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="addresHead">City:</td>
-                                <td class="addressInfo">London</td>
-                            </tr>
-                            <tr>
-                                <td class="addresHead">Street:</td>
-                                <td class="addressInfo">1 Salt and Pepper Street</td>
-                            </tr>
-                            <tr>
-                                <td class="addresHead">Post Code:</td>
-                                <td class="addressInfo">SA1 PE1</td>
-                            </tr>
-                            <tr>
-                                <td class="addresHead">Email:</td>
-                                <td class="addressInfo"><a
-                                        href="mailto:salt.and.pepper@gmail.com">salt.and.pepper@gmail.com</a></td>
-                            </tr>
-                            <tr>
-                                <td class="addresHead">Telephone:</td>
-                                <td class="addressInfo"><a href="tel:01234 56789">01234 56789</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </address>
-            </footer>
-            <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        </main>
+    </div>
+    <div class="container">
+        <footer class="d-flex justify-content-around mt-4">
+            <address class="my-0">
+                <table class="table table-sm tabel-contact my-1">
+                    <thead>
+                        <tr>
+                            <th class="text-center" colspan="2">address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="addresHead">City:</td>
+                            <td class="addressInfo">London</td>
+                        </tr>
+                        <tr>
+                            <td class="addresHead">Street:</td>
+                            <td class="addressInfo">1 Salt and Pepper Street</td>
+                        </tr>
+                        <tr>
+                            <td class="addresHead">Post Code:</td>
+                            <td class="addressInfo">SA1 PE1</td>
+                        </tr>
+                        <tr>
+                            <td class="addresHead">Email:</td>
+                            <td class="addressInfo"><a
+                                    href="mailto:salt.and.pepper@gmail.com">salt.and.pepper@gmail.com</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="addresHead">Telephone:</td>
+                            <td class="addressInfo"><a href="tel:01234 56789">01234 56789</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </address>
+        </footer>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script> -->
-            <!-- Bootstrap 5.2.0 beta  JavaScript Bundle with Popper -->
-            <script src="{% static 'javascript/bootstrap_bundle_min.js' %}">
-            </script>
-            <!-- <script src="{% static 'javascript/set_booking_marker.js' %}" type="module"></script> -->
+    <!-- Bootstrap 5.2.0 beta  JavaScript Bundle with Popper -->
+    <script src="{% static 'javascript/bootstrap_bundle_min.js' %}">
+    </script>
+    <!-- <script src="{% static 'javascript/set_booking_marker.js' %}" type="module"></script> -->
 </body>
 
 </html>
