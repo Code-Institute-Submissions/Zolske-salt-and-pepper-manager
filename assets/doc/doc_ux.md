@@ -193,7 +193,7 @@ The "user profile picture" is only shown if the user has one.
 
 #### wireframe
 
-![wireframe](images/wireframe home page.png)
+![wireframe](images/wireframe_home_page.png)
 
 ## 6. The Surface
 
