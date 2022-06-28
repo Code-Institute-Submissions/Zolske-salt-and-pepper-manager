@@ -1,27 +1,22 @@
 ![The Salt and Pepper Restaurant Logo](assets/doc/images/logo-doc.webp)![The Salt and Pepper Restaurant ](assets/doc/images/salt_and_pepper_title.png)
 
-The side allows the owner to easily manage their restaurant and engage with his customers.  
+The "Salt and Pepper" website is a great tool to manage the restaurant easily through its database. Guests who log in, can reserve a table and manage their bookings or even write a review, which after it has been approved by the owner, will be shown on the landing page. The owner can easily see and manage all reservations. He also can quickly update or expand the menu (*pictures, prices, allergies, and descriptions*).
 
-**The guests** can sign up for a free account to create and amend their reservations (**C**reate, **R**ead, **U**pdate, **D**elete). To keep them engaged, they also can upload their profile pictures, and write comments about the restaurant's service. Which can be viewed on the landing page, after it has been approved by the administrator.  
-
-**The administrator** itself can easily update the menu from the admin side with pictures, prices, allergies, and descriptions.  
-
-*Click on the link to the* [Salt and Pepper](https://salt-and-pepper-manager.herokuapp.com/) *live website*
+*Click on the link to the* [Salt and Pepper](https://salt-and-pepper-manager.herokuapp.com/) *live website*.
 
 ![reserving a table](assets/doc/images/screenshot_home_2.jpg)  
 
-[mockup was generated with techsini.com](https://techsini.com/multi-mockup/index.php)
+*mockup was generated with [techsini.com](https://techsini.com/multi-mockup/index.php)*
 
 ---
 
 ## Overview
 
 1. [features](#1-features)
-2. [technology's](#2-technologys)
+2. [technologies](#2-technologies)
 3. [development](#3-development)
-4. [relational database model](#4-relational-database-model)
-5. [testing](#5-testing)
-6. [deployment](#6-deployment)
+4. [testing](#4-testing)
+5. [deployment](#6-deployment)
 7. [credits](#7-credits)
 
 ---
@@ -36,8 +31,8 @@ The side allows the owner to easily manage their restaurant and engage with his 
 
 - the user can from within the app ...
   - **C**reate a table reservation
-  - **R**ead his/her table reservation
-  - **U**pdate a table reservation
+  - **R**ead his/her table reservation and see all available tables
+  - **U**pdate his/her table reservation
   - **D**elete his/her table reservation  
   
   *Click on the link to see a demonstration of the feature:* [reserving a table](assets/doc/images/booking_table_600.gif)
@@ -57,11 +52,11 @@ The side allows the owner to easily manage their restaurant and engage with his 
 
 ### Minor Features
 
-- the (logged-in) guests can **write a review**, which is shown on the home page after the administrator has approved it
+- guests can **write a review**, which is shown on the home page after the administrator has approved it
 
 ​		*Click on the link to see a demonstration of the feature:* [write a review](assets/doc/images/create_review_600.gif)  
 
-- the (logged-in) guest can **upload/change his profile picture**  
+- guest can **upload/change his profile picture**  
 
 ​		*Click on the link to see a demonstration of the feature:* [upload/ change profile picture](assets/doc/images/profile_picture_600.gif)  
 
@@ -82,7 +77,7 @@ The side allows the owner to easily manage their restaurant and engage with his 
 
 [back to overview](#overview)
 
-## 2. Technology's
+## 2. Technologies
 
 #### The following technologies have been used for the project:
 
@@ -103,22 +98,14 @@ The side allows the owner to easily manage their restaurant and engage with his 
 
 ## 3. Development
 
-- agile (_see GitHub user stories and milestones_)
+- agile (_see GitHub user stories and milestones_)  
+- Please, follow this link to the [UX](assets/doc/doc_ux.md)
 
 ---
 
 [back to overview](#overview)
 
-## 4. Relational Database Model
-
-![relational database model](assets/doc/images/relational_database_model.png)
-(_The model was automatically created with "Graph Models". You can find a link [here](assets/doc/graph_models.md) if you want to find out more about it._)
-
----
-
-[back to overview](#overview)
-
-## 5. Testing
+## 4. Testing
 
 - w3c markup validator (_HTML_)
 - w3c css validator (_CSS_)
