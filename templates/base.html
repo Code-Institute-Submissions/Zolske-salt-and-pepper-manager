@@ -34,9 +34,9 @@
                     src="https://res.cloudinary.com/diwuglogr/image/upload/v1656272885/salt_and_pepper/logo_cozruj.webp"
                     alt="website logo, two rings, one with a salt shaker the other one with an pepper shaker inside">
                 <p class="navbar-title align-self-center text-center">Salt And Pepper Restaurant</p>
-                <!-- </div> -->
-                {% if user.is_authenticated %}
-                <!-- <div class="d-flex flex-wrap justify-content-around align-self-center"> -->
+            </div>
+            {% if user.is_authenticated %}
+            <div class="d-flex flex-wrap justify-content-around align-self-center">
                 {% if user.profile_picture %}
                 <img src="{{user.profile_picture}}" alt="user profile picture" class="profile-picture">
                 {% endif %}
@@ -60,18 +60,18 @@
                     <li><a class="dropdown-item" href="{% url 'password_change'%}">
                             Change Your Password</a></li>
                 </ul>
-                <!-- </div> -->
-                {% else %}
-                <div class="d-flex flex-wrap justify-content-around align-items-center">
-                    <a href="{% url 'home' %}" class="btn btn-outline-dark m-2">
-                        Home</a>
-                    <a href="{% url 'menu' %}" class="btn btn-outline-dark m-2">
-                        Menu</a>
-                    <a href="{% url 'login' %}" class="btn btn-outline-dark m-2">
-                        Log In</a>
-                    <a href="{% url 'signup' %}" class="btn btn-outline-dark m-2">Sign Up</a>
-                </div>
             </div>
+            {% else %}
+            <div class="d-flex flex-wrap justify-content-around align-items-center">
+                <a href="{% url 'home' %}" class="btn btn-outline-dark m-2">
+                    Home</a>
+                <a href="{% url 'menu' %}" class="btn btn-outline-dark m-2">
+                    Menu</a>
+                <a href="{% url 'login' %}" class="btn btn-outline-dark m-2">
+                    Log In</a>
+                <a href="{% url 'signup' %}" class="btn btn-outline-dark m-2">Sign Up</a>
+            </div>
+            <!-- </div> -->
             {% endif %}
         </div>
     </header>
