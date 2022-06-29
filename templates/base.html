@@ -28,8 +28,6 @@
 
 <body>
     <header class="container">
-        <!-- <div class="p-3 mb-3 border-bottom"> -->
-        <!-- <div class="container"> -->
         <div class="d-flex flex-wrap justify-content-around p-3 mb-3 border-bottom">
             <div class="d-flex flex-wrap justify-content-around">
                 <img height="80" width="80"
@@ -42,27 +40,27 @@
                 {% if user.profile_picture %}
                 <img src="{{user.profile_picture}}" alt="user profile picture" class="profile-picture">
                 {% endif %}
-                <div class="dropdown align-self-center">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle user-menu"
-                        id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ user.username }}'s Menu
-                    </a>
-                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
-                        <li><a class="dropdown-item" href="{% url 'home' %}">Home</a></li>
-                        {% if user.is_superuser %}
-                        <li><a class="dropdown-item" href='{% url "admin:index" %}'>Admin</a></li>
-                        {% endif %}
-                        <li><a class="dropdown-item" href="{% url 'menu' %}">Browse Our Menu</a></li>
-                        <li><a class="dropdown-item" href="{% url 'bookings' %}">Manage Your Booking</a>
-                        </li>
-                        <li><a class="dropdown-item" href="{% url 'comment' %}">Write A Review</a></li>
-                        <li><a class="dropdown-item" href="{% url 'user_settings' %}">Change Your Profile
-                                Picture</a></li>
-                        <li><a class="dropdown-item" href="{% url 'password_change'%}">
-                                Change Your Password</a></li>
-                    </ul>
-                </div>
+                <!-- <div class="dropdown align-self-center"> -->
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle user-menu" id="dropdownUser1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ user.username }}'s Menu
+                </a>
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+                    <li><a class="dropdown-item" href="{% url 'home' %}">Home</a></li>
+                    {% if user.is_superuser %}
+                    <li><a class="dropdown-item" href='{% url "admin:index" %}'>Admin</a></li>
+                    {% endif %}
+                    <li><a class="dropdown-item" href="{% url 'menu' %}">Browse Our Menu</a></li>
+                    <li><a class="dropdown-item" href="{% url 'bookings' %}">Manage Your Booking</a>
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'comment' %}">Write A Review</a></li>
+                    <li><a class="dropdown-item" href="{% url 'user_settings' %}">Change Your Profile
+                            Picture</a></li>
+                    <li><a class="dropdown-item" href="{% url 'password_change'%}">
+                            Change Your Password</a></li>
+                </ul>
+                <!-- </div> -->
                 {% else %}
                 <div class="d-flex flex-wrap justify-content-around align-items-center">
                     <a href="{% url 'home' %}" class="btn btn-outline-dark m-2">
@@ -76,14 +74,12 @@
             </div>
             {% endif %}
         </div>
-        <!-- </div> -->
-        <!-- </div> -->
     </header>
 
-    <!-- <div class="container"> -->
-    {% block content %}
-    {% endblock content %}
-    <!-- </div> -->
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
     <div class="container">
         <footer class="d-flex justify-content-around mt-4">
             <address class="my-0">
