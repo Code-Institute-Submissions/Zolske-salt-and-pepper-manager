@@ -16,8 +16,8 @@ The "Salt and Pepper" website is a great tool to manage the restaurant easily th
 2. [technologies](#2-technologies)
 3. [development](#3-development)
 4. [testing](#4-testing)
-5. [deployment](#6-deployment)
-7. [credits](#7-credits)
+5. [setup and deployment](#5-setup-and-deployment)
+7. [credits](#6-credits)
 
 ---
 
@@ -48,30 +48,26 @@ The "Salt and Pepper" website is a great tool to manage the restaurant easily th
   - **U**pdate the menu
   - **D**elete menu items  
   
-  *Click on the link to see a demonstration of the feature:* [create a menu](assets/doc/images/create_menu_600.gif)
+  *Click on the link to see a demonstration of the feature:* [create a menu](assets/doc/images/create_menu_600.gif)  
+
+#### 3. user feedback :
+
+[see demonstration: write a review](https://github.com/Zolske/salt-and-pepper-manager/blob/main/assets/doc/images/create_review_600.gif)
+
+- guests can write a review from within the app
+  - after the administrator has approved it, it is shown on the home page
+  - entry is limited to 340 characters to protect the layout from "overflow"
+  - reviews on the home page change automatically to the next by themself
+  - user can see his own reviews but not delete them (only the admin can)
+  - reviews are not deleted when the guests are deleted (_reviews are needed even after guests have left_)
+  - guests can not amend comments (_otherwise they could change its content and the administrator would need to approve it again_)
 
 ### Minor Features
 
-- guests can **write a review**, which is shown on the home page after the administrator has approved it
-
-​		*Click on the link to see a demonstration of the feature:* [write a review](assets/doc/images/create_review_600.gif)  
-
-- guest can **upload/change his profile picture**  
-
-​		*Click on the link to see a demonstration of the feature:* [upload/ change profile picture](assets/doc/images/profile_picture_600.gif)  
-
-- guests can use the side from their **mobile phone**  
+- guest can **upload/change their profile picture** [see demonstration: profile picture](https://github.com/Zolske/salt-and-pepper-manager/blob/main/assets/doc/images/profile_picture_600.gif)
+- guests can use the side from their **mobile phone**
 - the **password can be reset** through a link received by email
-
-### Planned Features  
-
-- the user can:
-  - leave a like on their favorite dish  
-  - book a menu with their reservation
-  - receive a reminder for their reservation  
-  - not reserve a table that is before the current time
-- the owner can:
-  - keep a database about his guests to keep them up to date
+- only the admin has an additional **link** in his menu that takes him to **the admin panel**
 
 ---
 
@@ -98,8 +94,7 @@ The "Salt and Pepper" website is a great tool to manage the restaurant easily th
 
 ## 3. Development
 
-- agile (_see GitHub user stories and milestones_)  
-- Please, follow this link to the [UX](assets/doc/doc_ux.md)
+- [see UX documentation](assets/doc/doc_ux.md)
 
 ---
 
@@ -107,36 +102,45 @@ The "Salt and Pepper" website is a great tool to manage the restaurant easily th
 
 ## 4. Testing
 
-- w3c markup validator (_HTML_)
-- w3c css validator (_CSS_)
-- Jest (_JavaScript_)
-- unit tests (_Python_)
-- Lighthouse (_website performance_)
+- [see test documentation](assets/doc/doc_testing.md)
 
 ### Known Bugs
 
-- the user can book a table for a time slot which has already passed
+- the user can book a table for a time slot that has already passed  
+- the site is not refreshed, if two users try to book the last table for the same time on the same day, then the last guest gets an error but the database does not go into minus  
+- when amending a reservation, the guest can only change to the number of tables which is available but not including the tables which are included in the reservation which he wants to amend, he would need to cancel his reservation and then rebook
 
 ---
 
 [back to overview](#overview)
 
-## 6. Deployment
+## 5. Setup and Deployment  
+
+The project was developed by making sure that it would work from the beginning, that is why the setup process is also the deployment process. 
+
+[see set_up documentation](assets/doc/setup)  
+
+- !! make sure that debug is set to false !!
+
+  *... django_project/settings.py*
+  `DEBUG = False`
 
 ---
 
 [back to overview](#overview)
 
-## 7. Credits
+## 6. Credits
 
----
-
-## TODO List
-
-[] prevent the user from booking a table at a time which has already passed  
-[] add confirmation when new booking has been place  
-[] create and add logo
-[] add location (_map_)  
-[] add opening times and contact details  
-[] add comments from costumers  
-[] add gallery of restaurant
+- **unsplash** :
+  - pictures are taken from [unsplash.com/](https://unsplash.com/)  
+- **favicon** :  
+  - was used to generate the favicon [favicon.io](https://favicon.io/)  
+- **randomuser** :  
+  - was used for the profile picture [randomuser.me](https://randomuser.me/photos)
+- **w3schools** :
+  - was used for research [w3schools](https://www.w3schools.com/django/index.php)  
+- **The Django Book** : (*by Big Nige*)  
+  - was used for research [djangobook.com](https://djangobook.com/django-tutorials/mastering-django-structure/)
+- **Django for Beginners** : (*by William S. Vincent*)  
+  - was used for research and to set up the "password reset functionality" [Django for Beginners](https://www.amazon.co.uk/dp/B079ZZLRRL/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)  
+- 

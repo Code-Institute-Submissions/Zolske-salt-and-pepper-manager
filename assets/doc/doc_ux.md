@@ -25,7 +25,7 @@ The audience for the website is:
 
 ## 2. User Stories
 
-The project was developed with an **agile** development style. _Click on the link to see which tasks have been allocated to the user stories on GitHub and in which iteration they appear. Please, note that some stories can be owner- or user- stories. To keep the document concise, they have been listed only once._
+*Please, note that some stories can be owner- or user- stories. To keep the document concise, they have been listed only once.*
 
 ### As the Owner, I can ...
 
@@ -123,7 +123,9 @@ _Maybe implemented in future releases._
   - book a menu with their reservation
   - receive a reminder for their reservation
   - not reserve a table that is before the current time
-  - when amending a reservation, the tables from the amended reservation should be returned to the total of the available tables (_at the moment the guest needs to cancel the reservation to access all possible tables and not just apart from the amendment_)
+  - when amending a reservation, the tables from the amended reservation should be returned to the total of the available tables (_at the moment the guest needs to cancel the reservation to access all possible tables and not just apart from the amendment_)  
+  - add a  gallery of restaurant  
+  - add a map with the location of the restaurant
 - the owner can:
   - tables should be returned automatically when a guest is deleted and not manually by the owner
 

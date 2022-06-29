@@ -2,7 +2,9 @@
 
 ## **HTML**  
 
-Some errors were found, please the read explanation. (*[link to Nu Html Checker](https://validator.w3.org/nu/)*)
+ Nu Html Checker (*[https://validator.w3.org/nu/](https://validator.w3.org/nu/)*)  
+
+Some errors were found, please the read explanation.
 
 | page                                               | link to the test                                             | result                                                       |
 | -------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -15,20 +17,25 @@ Some errors were found, please the read explanation. (*[link to Nu Html Checker]
 | comments<br />(*Write A Review*)                   | html copied into validator                                   | **Error 1 :** can not validate inherited HTML from base html<br />**Error 2 :** dose not recognize Django template tag with date time<br />**Error 3 :** Duplicate ID, but only one of the ids is used at a time, depending on the screen with |
 | bookings                                           | html copied into validator                                   | **Error 1 :** can not validate inherited HTML from base html<br />**Error 2 :** dose not recognize Django template tag with date time<br /> |
 
-
-
-
-
 ## CSS  
 
-W3C Internationalization Checker [validator.w3.org/](https://validator.w3.org/)
+W3C CSS Validation Service [jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)  
 
-| page                          | link to the test                                             | result                |
-| ----------------------------- | ------------------------------------------------------------ | --------------------- |
-| home                          | [link to the test](https://validator.w3.org/i18n-checker/check?uri=https%3A%2F%2Fsalt-and-pepper-manager.herokuapp.com%2F#validate-by-uri+) | No issues to report ! |
-| menu                          | [link to the test](https://validator.w3.org/i18n-checker/check?uri=https%3A%2F%2Fsalt-and-pepper-manager.herokuapp.com%2Fmenu%2F#validate-by-uri+) | No issues to report ! |
-| login                         | [link to the test](https://validator.w3.org/i18n-checker/check?uri=https%3A%2F%2Fsalt-and-pepper-manager.herokuapp.com%2Faccounts%2Flogin%2F#validate-by-uri+) | No issues to report ! |
-| signup                        | [link to the test](https://validator.w3.org/i18n-checker/check?uri=https%3A%2F%2Fsalt-and-pepper-manager.herokuapp.com%2Faccounts%2Fsignup%2F#validate-by-uri+) | No issues to report ! |
-| password_change               | [link to the test](https://validator.w3.org/i18n-checker/check?uri=https%3A%2F%2Fsalt-and-pepper-manager.herokuapp.com%2Faccounts%2Fpassword_change%2F#validate-by-uri+) | No issues to report ! |
-| comments,  bookings, accounts | can not be tested because the validator can not log in to reach the site | -----                 |
+- **No Error Found!** 
+- **218 Warnings** 
 
+- The document validates as [CSS level 3 + SVG](http://www.w3.org/Style/CSS/current-work.html) ! ![validation gold](images/css-validation-gold.jpg) ![validation blue](images/css-validation-blue.jpg) [link to test result](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsalt-and-pepper-manager.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+## Python PEP8  
+
+Pylint was used in vscode to check PEP8 convention, which returned no errors.
+
+## Lighthouse  
+
+- desktop test result :  
+
+  ![lighthouse desktop](images/lighthous-desktop.jpg)
+
+- mobile test result :
+
+  ![lighthouse mobile](images/lighthous-mobile.jpg)
