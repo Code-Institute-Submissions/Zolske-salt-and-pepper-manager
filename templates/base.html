@@ -82,10 +82,8 @@
         </header>
     </div>
     <div class="container">
-        <main>
-            {% block content %}
-            {% endblock content %}
-        </main>
+        {% block content %}
+        {% endblock content %}
     </div>
     <div class="container">
         <footer class="d-flex justify-content-around mt-4">
@@ -117,20 +115,16 @@
                         </tr>
                         <tr>
                             <td class="addresHead">Telephone:</td>
-                            <td class="addressInfo"><a href="tel:01234 56789">01234 56789</a></td>
+                            <td class="addressInfo"><a href="tel:0123456789">01234 56789</a></td>
                         </tr>
                     </tbody>
                 </table>
             </address>
         </footer>
     </div>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script> -->
     <!-- Bootstrap 5.2.0 beta  JavaScript Bundle with Popper -->
     <script src="{% static 'javascript/bootstrap_bundle_min.js' %}">
     </script>
-    <!-- <script src="{% static 'javascript/set_booking_marker.js' %}" type="module"></script> -->
 </body>
 
 </html>

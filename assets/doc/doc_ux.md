@@ -86,7 +86,7 @@ _Contains the features which are based on the "user stories" that are implemente
    - there is an "available table view" which is based on the database table, so the user can see the availability quickly
    - the owner can see on the admin panel which reservation belongs to which guest
      - owner can contact the guest because he can see their email address in the admin panel
-     - **note**, guests can not delete their account by themself, only the owner can, if he deletes a guest which has a booking then he needs to return the available table manually on the admin panel to the "available tables" table
+     - **note**, guests can not delete their account by themselves, only the owner can, if he deletes a guest which has a booking then he needs to return the available table manually on the admin panel to the "available tables" table
 
 2. #### menu creation:
 
