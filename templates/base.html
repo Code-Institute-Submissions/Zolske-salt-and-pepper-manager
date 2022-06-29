@@ -34,15 +34,14 @@
                     <div class="d-flex flex-wrap justify-content-around">
                         <img height="80" width="80"
                             src="https://res.cloudinary.com/diwuglogr/image/upload/v1656272885/salt_and_pepper/logo_cozruj.webp"
-                            alt="">
+                            alt="website logo, two rings, one with a salt shaker the other one with an pepper shaker inside">
                         <p class="navbar-title align-self-center text-center">Salt And Pepper Restaurant</p>
                     </div>
-                    {% if user.is_authenticated %}
-                    <!-- <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"></ul> -->
+                    <!-- {% if user.is_authenticated %} -->
                     <div class="d-flex flex-wrap justify-content-around align-self-center">
-                        {% if user.profile_picture %}
+                        <!-- {% if user.profile_picture %} -->
                         <img src="{{user.profile_picture}}" alt="user profile picture" class="profile-picture">
-                        {% endif %}
+                        <!-- {% endif %} -->
                         <div class="dropdown align-self-center">
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle user-menu"
                                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,8 +63,7 @@
                                         Change Your Password</a></li>
                             </ul>
                         </div>
-                        <!-- </ul> -->
-                        {% else %}
+                        <!-- {% else %} -->
                         <div class="d-flex flex-wrap justify-content-around align-items-center">
                             <a href="{% url 'home' %}" class="btn btn-outline-dark m-2">
                                 Home</a>
@@ -76,7 +74,7 @@
                             <a href="{% url 'signup' %}" class="btn btn-outline-dark m-2">Sign Up</a>
                         </div>
                     </div>
-                    {% endif %}
+                    <!-- {% endif %} -->
                 </div>
             </div>
         </header>
