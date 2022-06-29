@@ -27,8 +27,11 @@
 </head>
 
 <body>
-    <div class="container">
-        <header class="p-3 mb-3 border-bottom">
+    <!-- <div class="container">
+        <header class="p-3 mb-3 border-bottom"> -->
+    <header class="container">
+        <div class="p-3 mb-3 border-bottom">
+            <!-- change end -->
             <div class="container">
                 <div class="d-flex flex-wrap justify-content-around">
                     <div class="d-flex flex-wrap justify-content-around">
@@ -37,11 +40,11 @@
                             alt="website logo, two rings, one with a salt shaker the other one with an pepper shaker inside">
                         <p class="navbar-title align-self-center text-center">Salt And Pepper Restaurant</p>
                     </div>
-                    <!-- {% if user.is_authenticated %} -->
+                    {% if user.is_authenticated %}
                     <div class="d-flex flex-wrap justify-content-around align-self-center">
-                        <!-- {% if user.profile_picture %} -->
+                        {% if user.profile_picture %}
                         <img src="{{user.profile_picture}}" alt="user profile picture" class="profile-picture">
-                        <!-- {% endif %} -->
+                        {% endif %}
                         <div class="dropdown align-self-center">
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle user-menu"
                                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,7 +66,7 @@
                                         Change Your Password</a></li>
                             </ul>
                         </div>
-                        <!-- {% else %} -->
+                        {% else %}
                         <div class="d-flex flex-wrap justify-content-around align-items-center">
                             <a href="{% url 'home' %}" class="btn btn-outline-dark m-2">
                                 Home</a>
@@ -74,11 +77,14 @@
                             <a href="{% url 'signup' %}" class="btn btn-outline-dark m-2">Sign Up</a>
                         </div>
                     </div>
-                    <!-- {% endif %} -->
+                    {% endif %}
                 </div>
             </div>
-        </header>
-    </div>
+            <!-- </header>
+    </div> -->
+        </div>
+    </header>
+
     <div class="container">
         {% block content %}
         {% endblock content %}
