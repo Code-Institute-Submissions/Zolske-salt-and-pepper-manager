@@ -12,18 +12,16 @@
     <hr>
     <h2>Starters</h2>
     {% for entry in starter %}
-    <div class="card d-inline-block mx-2 my-1" style="width: 18rem;">
+    <div class="card d-inline-block mx-2 my-1 menu-card">
         <img height="286" width="286" src="{{ entry.image }}" class="card-img-top menu-pictures" alt="entry.alt">
         <div class="card-body text-height-menu">
-            <h5 class="card-title">{{entry.dish}}</h5>
+            <h3 class="card-title h5">{{entry.dish}}</h3>
             <p class="card-text">{{entry.description}}</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">allergies: {{entry.allergies}}</li>
-        </ul>
-        <div class="card-body">
             <li class="list-group-item">Price: £ {{entry.price}}</li>
-        </div>
+        </ul>
     </div>
     {% endfor %}
     {% endif %}
@@ -33,18 +31,16 @@
     <a href="#top-menu"><i class="bi bi-hand-index-thumb"></i> top</a>
     <h2>Main Dishes</h2>
     {% for entry in main %}
-    <div class="card d-inline-block mx-2 my-1" style="width: 18rem;">
+    <div class="card d-inline-block mx-2 my-1 menu-card">
         <img height="286" width="286" src="{{ entry.image }}" class="card-img-top menu-pictures" alt="entry.alt">
         <div class="card-body text-height-menu">
-            <h5 class="card-title">{{entry.dish}}</h5>
+            <h3 class="card-title h5">{{entry.dish}}</h3>
             <p class="card-text">{{entry.description}}</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">allergies: {{entry.allergies}}</li>
-        </ul>
-        <div class="card-body">
             <li class="list-group-item">Price: £ {{entry.price}}</li>
-        </div>
+        </ul>
     </div>
     {% endfor %}
     {% endif %}
@@ -54,18 +50,16 @@
     <a href="#top-menu"><i class="bi bi-hand-index-thumb"></i> top</a>
     <h2>Desserts</h2>
     {% for entry in dessert %}
-    <div class="card d-inline-block mx-2 my-1" style="width: 18rem;">
+    <div class="card d-inline-block mx-2 my-1 menu-card">
         <img height="286" width="286" src="{{ entry.image }}" class="card-img-top menu-pictures" alt="entry.alt">
         <div class="card-body text-height-menu">
-            <h5 class="card-title">{{entry.dish}}</h5>
+            <h3 class="card-title h5">{{entry.dish}}</h3>
             <p class="card-text">{{entry.description}}</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">allergies: {{entry.allergies}}</li>
-        </ul>
-        <div class="card-body">
             <li class="list-group-item">Price: £ {{entry.price}}</li>
-        </div>
+        </ul>
     </div>
     {% endfor %}
     {% endif %}
@@ -75,18 +69,16 @@
     <a href="#top-menu"><i class="bi bi-hand-index-thumb"></i> top</a>
     <h2>Drinks</h2>
     {% for entry in drink %}
-    <div class="card d-inline-block mx-2 my-1" style="width: 18rem;">
+    <div class="card d-inline-block mx-2 my-1 menu-card">
         <img height="286" width="286" src="{{ entry.image }}" class="card-img-top menu-pictures" alt="entry.alt">
         <div class="card-body text-height-menu">
-            <h5 class="card-title">{{entry.dish}}</h5>
+            <h3 class="card-title h5">{{entry.dish}}</h3>
             <p class="card-text">{{entry.description}}</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">allergies: {{entry.allergies}}</li>
-        </ul>
-        <div class="card-body">
             <li class="list-group-item">Price: £ {{entry.price}}</li>
-        </div>
+        </ul>
     </div>
     {% endfor %}
     {% endif %}
@@ -96,18 +88,16 @@
     <a href="#top-menu"><i class="bi bi-hand-index-thumb"></i> top</a>
     <h2>Alcohol</h2>
     {% for entry in alcohol %}
-    <div class="card d-inline-block mx-2 my-1" style="width: 18rem;">
+    <div class="card d-inline-block mx-2 my-1 menu-card">
         <img height="286" width="286" src="{{ entry.image }}" class="card-img-top menu-pictures" alt="entry.alt">
         <div class="card-body text-height-menu">
-            <h5 class="card-title">{{entry.dish}}</h5>
+            <h3 class="card-title h5">{{entry.dish}}</h3>
             <p class="card-text">{{entry.description}}</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">allergies: {{entry.allergies}}</li>
-        </ul>
-        <div class="card-body">
             <li class="list-group-item">Price: £ {{entry.price}}</li>
-        </div>
+        </ul>
     </div>
     {% endfor %}
     {% endif %}
