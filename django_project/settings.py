@@ -180,4 +180,3 @@ EMAIL_USE_TLS = True
 
 # uncomment this line when deploying to heroku !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! whitenoise
 STATIC_ROOT = BASE_DIR / "static"
-STATIC_URL = BASE_DIR / "static"
