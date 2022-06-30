@@ -30,7 +30,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') #make sure 'os' is imported
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # can not set to False, JavaScript not working, no time to find solution!!!
+DEBUG = False # dose not load admin stylesheet and JavaScript
 
 ALLOWED_HOSTS = ['salt-and-pepper-manager.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -180,3 +180,4 @@ EMAIL_USE_TLS = True
 
 # uncomment this line when deploying to heroku !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! whitenoise
 STATIC_ROOT = BASE_DIR / "static"
+STATIC_URL = BASE_DIR / "static"
