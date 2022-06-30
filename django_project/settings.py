@@ -30,7 +30,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') #make sure 'os' is imported
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # can not set to False, JavaScript not working, no time to find solution!!!
+DEBUG = False # can not set to False, JavaScript not working, no time to find solution!!!
 
 ALLOWED_HOSTS = ['salt-and-pepper-manager.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -174,9 +174,9 @@ EMAIL_USE_TLS = True
 # ============== before deponing to heroku, py manage.py collectstatic =========================================
 
 # comment this lines when deploying to heroku!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' # use whitenoise because cloudinary is not working!!!
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # use whitenoise because cloudinary is not working!!!
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # use whitenoise because cloudinary is not working!!!
+# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' # use whitenoise because cloudinary is not working!!!
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # use whitenoise because cloudinary is not working!!!
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # use whitenoise because cloudinary is not working!!!
 
 # uncomment this line when deploying to heroku !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! whitenoise
-# STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = BASE_DIR / "static"
