@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import AvailableTable, UserBookings
+from django.contrib.auth.admin import UserAdmin
+from .models import AvailableTable, User_Bookings
 
 
 class AvailableTablesAdmin(admin.ModelAdmin):
@@ -14,9 +15,8 @@ class AvailableTablesAdmin(admin.ModelAdmin):
         "time_slot_22",
     ]
 
-
-class UserBookingsAdmin(admin.ModelAdmin):
-    model = UserBookings
+class User_BookingsAdmin(admin.ModelAdmin):
+    model = User_Bookings
     list_display = [
         "booked_name",
         "booked_date",
@@ -26,4 +26,4 @@ class UserBookingsAdmin(admin.ModelAdmin):
     
     
 admin.site.register(AvailableTable, AvailableTablesAdmin)
-admin.site.register(UserBookings, UserBookingsAdmin)
+admin.site.register(User_Bookings, User_BookingsAdmin)

@@ -20,7 +20,7 @@ if os.path.isfile("env.py"):
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')  # make sure 'os' is imported
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') #make sure 'os' is imported
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,7 +30,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')  # make sure 'os' is importe
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # does not load admin stylesheet and JavaScript
+DEBUG = False # dose not load admin stylesheet and JavaScript
 
 ALLOWED_HOSTS = ['salt-and-pepper-manager.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',  # must be above 'django.contrib.staticfiles'
+    'cloudinary_storage', #must be above 'django.contrib.staticfiles'
     'django.contrib.staticfiles',
     # 3rd party apps    
     'cloudinary',
@@ -134,7 +134,7 @@ USE_TZ = True
 # Static files (CSS,  JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-# STATIC_URL = 'static/'
+#STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -145,7 +145,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # tell Django to use the new custom user model in place of the built-in User model
 AUTH_USER_MODEL = "appaccounts.CustomUser"
@@ -174,10 +174,9 @@ EMAIL_USE_TLS = True
 # ============== before deponing to heroku, py manage.py collectstatic =========================================
 
 # comment this lines when deploying to heroku!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# use whitenoise because cloudinary is not working!!!
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # use whitenoise because cloudinary is not working!!!
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # use whitenoise because cloudinary is not working!!!
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage' # use whitenoise because cloudinary is not working!!!
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # use whitenoise because cloudinary is not working!!!
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # use whitenoise because cloudinary is not working!!!
 
 # uncomment this line when deploying to heroku !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! whitenoise
 # STATIC_ROOT = BASE_DIR / "static"

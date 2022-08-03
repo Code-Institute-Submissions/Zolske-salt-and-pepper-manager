@@ -5,7 +5,6 @@ User = settings.AUTH_USER_MODEL
 
 max_table = 10
 
-
 class AvailableTable(models.Model):
     booking_date = models.DateField(primary_key=True)
     time_slot_12 = models.PositiveSmallIntegerField(default=max_table)
@@ -25,7 +24,7 @@ class AvailableTable(models.Model):
                                            self.time_slot_22)
     
 
-class UserBookings(models.Model):
+class User_Bookings(models.Model):  
     booked_name = models.ForeignKey(User, on_delete=models.CASCADE)
     booked_date = models.DateField()
     booked_time = models.CharField(max_length=6)
@@ -33,4 +32,4 @@ class UserBookings(models.Model):
     
     def __str__(self):
         return "%s (%s,%s,%s)" % (self.booked_name, self.booked_date,
-                                  self.booked_time, self.booked_tables)
+                                  self.booked_time, self.booked_tables)       

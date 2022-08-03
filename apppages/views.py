@@ -1,7 +1,13 @@
-from django.http import HttpResponse
+from django.views.generic import TemplateView
+from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from django.template import loader
 from appcomments.models import Comments
 
+# class HomePageView(TemplateView):
+#     template_name = "home.html"
+    
 
 def HomePageView(request):
     user_comments = Comments.objects.filter(approved=True).order_by("-date").values()
@@ -12,8 +18,9 @@ def HomePageView(request):
         counter.append(entry)
     
     context = {
-        'user_comments': user_comments,
-        'counter': counter,
+    'user_comments' : user_comments,
+    'counter' : counter,
+    
     }  
     
     return HttpResponse(template.render(context, request))

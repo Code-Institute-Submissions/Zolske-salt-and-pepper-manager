@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import MenuStarter, MenuMain, MenuDessert, MenuDrinks, MenuAlcohol
 
-
+# Create your views here.
 def menu(request):
     template = loader.get_template('menu/menu.html')
     starter = MenuStarter.objects.all().order_by("price").values()
@@ -14,10 +14,10 @@ def menu(request):
     
     context = {
         'starter': starter,
-        'main': main,
-        'dessert': dessert,
-        'drink': drink,
-        'alcohol': alcohol,
+        'main' : main,
+        'dessert' : dessert,
+        'drink' : drink,
+        'alcohol' : alcohol,      
     }
         
     return HttpResponse(template.render(context, request))
