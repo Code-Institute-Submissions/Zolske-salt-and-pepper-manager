@@ -1,9 +1,8 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 from .models import Comments
 
 
-class commentsAdmin(admin.ModelAdmin):
+class CommentsAdmin(admin.ModelAdmin):
     model = Comments
     list_display = [
         "author",
@@ -13,4 +12,5 @@ class commentsAdmin(admin.ModelAdmin):
         "date",
     ]
     
-admin.site.register(Comments, commentsAdmin)
+
+admin.site.register(Comments, CommentsAdmin)
