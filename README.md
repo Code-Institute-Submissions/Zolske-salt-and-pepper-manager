@@ -1,12 +1,12 @@
 ![The Salt and Pepper Restaurant Logo](assets/doc/images/logo-doc.webp)![The Salt and Pepper Restaurant ](assets/doc/images/salt_and_pepper_title.png)
 
-The "Salt and Pepper" website is a great tool to manage the restaurant easily through its database. Guests who log in, can reserve a table and manage their bookings or even write a review, which after it has been approved by the owner, will be shown on the landing page. The owner can easily see and manage all reservations. He also can quickly update or expand the menu (*pictures, prices, allergies, and descriptions*).
+The "Salt and Pepper" website is a great tool to manage the restaurant easily through its database. Guests who log in, can reserve a table and manage their bookings or even write a review, which after it has been approved by the owner, will be shown on the landing page. The owner can easily see and manage all reservations. He also can quickly update or expand the menu (_pictures, prices, allergies, and descriptions_).
 
-*Click on the link to the* [Salt and Pepper](https://salt-and-pepper-manager.herokuapp.com/) *live website*.
+_Click on the link to the_ [Salt and Pepper](https://salt-and-pepper-manager.herokuapp.com/) _live website_.
 
-![reserving a table](assets/doc/images/screenshot_home_2.jpg)  
+![reserving a table](assets/doc/images/screenshot_home_2.jpg)
 
-*mockup was generated with [techsini.com](https://techsini.com/multi-mockup/index.php)*
+_mockup was generated with [techsini.com](https://techsini.com/multi-mockup/index.php)_
 
 ---
 
@@ -17,7 +17,7 @@ The "Salt and Pepper" website is a great tool to manage the restaurant easily th
 3. [development](#3-development)
 4. [testing](#4-testing)
 5. [setup and deployment](#5-setup-and-deployment)
-7. [credits](#6-credits)
+6. [credits](#6-credits)
 
 ---
 
@@ -30,25 +30,27 @@ The "Salt and Pepper" website is a great tool to manage the restaurant easily th
 #### 1. table reservation :
 
 - the user can from within the app ...
+
   - **C**reate a table reservation
   - **R**ead his/her table reservation and see all available tables
   - **U**pdate his/her table reservation
-  - **D**elete his/her table reservation  
-  
-  *Click on the link to see a demonstration of the feature:* [reserving a table](assets/doc/images/booking_table_600.gif)
+  - **D**elete his/her table reservation
+
+  _Click on the link to see a demonstration of the feature:_ [reserving a table](assets/doc/images/booking_table_600.gif)
 
 #### 2. menu creation :
 
 - the owner can as administrator ...
-  - **C**reate a new menu item (_Name, description, allergies, price, image*_)  
-  
-    (* *pictures can only be uploaded as cloudinary link*)
-  
+
+  - **C**reate a new menu item (_Name, description, allergies, price, image\*_)
+
+    (\* _pictures can only be uploaded as cloudinary link_)
+
   - **R**ead the menu
   - **U**pdate the menu
-  - **D**elete menu items  
-  
-  *Click on the link to see a demonstration of the feature:* [create a menu](assets/doc/images/create_menu_600.gif)  
+  - **D**elete menu items
+
+  _Click on the link to see a demonstration of the feature:_ [create a menu](assets/doc/images/create_menu_600.gif)
 
 #### 3. user feedback :
 
@@ -77,16 +79,16 @@ The "Salt and Pepper" website is a great tool to manage the restaurant easily th
 
 #### The following technologies have been used for the project:
 
-- ![html](assets/doc/images/logos/html64x64.png) **HTML** *to give structure to the page and "mark" the content*
-- ![CSS](assets/doc/images/logos/css64x64.png)![Bootstrap](assets/doc/images/logos/bootstrap64x64.png) **CSS** & **Bootstrap** *to style the content and the page*  
-- ![JavaScript](assets/doc/images/logos/js64x64.png) **JavaScript** *to implement logic*  
-- ![python](assets/doc/images/logos/python64x64.png) ![Django](assets/doc/images/logos/django64x64.png) **Python** & **Django** *for the "backend"*  
-- ![Git](assets/doc/images/logos/git64x64.png) **Git** *for version control*  
-- ![GitHub](assets/doc/images/logos/github64x64.png) **GitHub** *to store the project*  
-- ![Cloudinary](assets/doc/images/logos/cloudinary64x64.png) **Cloudinary** *to store images online*  
-- ![Gunicorn](assets/doc/images/logos/gunicorn64x64.png) **Gunicorn** *as Python Web Server Gateway Interface*
-- ![Heroku](assets/doc/images/logos/heroku64x64.png) **Heroku** *to serve the project online*  
-- ![Postgres](assets/doc/images/logos/postgresql64x64.png) **PostgreSQL** *as database engine*
+- ![html](assets/doc/images/logos/html64x64.png) **HTML** _to give structure to the page and "mark" the content_
+- ![CSS](assets/doc/images/logos/css64x64.png)![Bootstrap](assets/doc/images/logos/bootstrap64x64.png) **CSS** & **Bootstrap** _to style the content and the page_
+- ![JavaScript](assets/doc/images/logos/js64x64.png) **JavaScript** _to implement logic_
+- ![python](assets/doc/images/logos/python64x64.png) ![Django](assets/doc/images/logos/django64x64.png) **Python** & **Django** _for the "backend"_
+- ![Git](assets/doc/images/logos/git64x64.png) **Git** _for version control_
+- ![GitHub](assets/doc/images/logos/github64x64.png) **GitHub** _to store the project_
+- ![Cloudinary](assets/doc/images/logos/cloudinary64x64.png) **Cloudinary** _to store images online_
+- ![Gunicorn](assets/doc/images/logos/gunicorn64x64.png) **Gunicorn** _as Python Web Server Gateway Interface_
+- ![Heroku](assets/doc/images/logos/heroku64x64.png) **Heroku** _to serve the project online_
+- ![Postgres](assets/doc/images/logos/postgresql64x64.png) **PostgreSQL** _as database engine_
 
 ---
 
@@ -106,23 +108,24 @@ The "Salt and Pepper" website is a great tool to manage the restaurant easily th
 
 ### Known Bugs
 
-- the user can book a table for a time slot that has already passed  
-- the site is not refreshed, if two users try to book the last table for the same time on the same day, then the last guest gets an error but the database does not go into minus  
+- the user can book a table for a time slot that has already passed
+- the site is not refreshed, if two users try to book the last table for the same time on the same day, then the last guest gets an error but the database does not go into minus
 - when amending a reservation, the guest can only change to the number of tables which is available but not including the tables which are included in the reservation which he wants to amend, he would need to cancel his reservation and then rebook
+- admin panel does not pick up Django's CSS when debug mode is set to False
 
 ---
 
 [back to overview](#overview)
 
-## 5. Setup and Deployment  
+## 5. Setup and Deployment
 
-The project was developed by making sure that it would work from the beginning, that is why the setup process is also the deployment process. 
+The project was developed by making sure that it would work from the beginning, that is why the setup process is also the deployment process.
 
-[see set_up documentation](assets/doc/setup)  
+[see set_up documentation](assets/doc/setup)
 
 - !! make sure that debug is set to false !!
 
-  *... django_project/settings.py*
+  _... django_project/settings.py_
   `DEBUG = False`
 
 ---
@@ -132,15 +135,14 @@ The project was developed by making sure that it would work from the beginning, 
 ## 6. Credits
 
 - **unsplash** :
-  - pictures are taken from [unsplash.com/](https://unsplash.com/)  
-- **favicon** :  
-  - was used to generate the favicon [favicon.io](https://favicon.io/)  
-- **randomuser** :  
+  - pictures are taken from [unsplash.com/](https://unsplash.com/)
+- **favicon** :
+  - was used to generate the favicon [favicon.io](https://favicon.io/)
+- **randomuser** :
   - was used for the profile picture [randomuser.me](https://randomuser.me/photos)
 - **w3schools** :
-  - was used for research [w3schools](https://www.w3schools.com/django/index.php)  
-- **The Django Book** : (*by Big Nige*)  
+  - was used for research [w3schools](https://www.w3schools.com/django/index.php)
+- **The Django Book** : (_by Big Nige_)
   - was used for research [djangobook.com](https://djangobook.com/django-tutorials/mastering-django-structure/)
-- **Django for Beginners** : (*by William S. Vincent*)  
-  - was used for research and to set up the "password reset functionality" [Django for Beginners](https://www.amazon.co.uk/dp/B079ZZLRRL/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)  
-- 
+- **Django for Beginners** : (_by William S. Vincent_)
+  - was used for research and to set up the "password reset functionality" [Django for Beginners](https://www.amazon.co.uk/dp/B079ZZLRRL/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)
