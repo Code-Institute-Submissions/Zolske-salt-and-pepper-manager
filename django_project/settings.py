@@ -30,7 +30,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')  # make sure 'os' is importe
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # dose not load admin stylesheet and JavaScript
+DEBUG = True  # dose not load admin stylesheet and JavaScript
 
 ALLOWED_HOSTS = ['salt-and-pepper-manager.herokuapp.com', 'localhost', '127.0.0.1']
 
