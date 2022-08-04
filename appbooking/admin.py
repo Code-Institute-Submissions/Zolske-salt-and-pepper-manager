@@ -15,6 +15,7 @@ class AvailableTablesAdmin(admin.ModelAdmin):
         "time_slot_22",
     ]
 
+
 class User_BookingsAdmin(admin.ModelAdmin):
     model = User_Bookings
     list_display = [

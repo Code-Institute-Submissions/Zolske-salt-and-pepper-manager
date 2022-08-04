@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="692fc214-e4db-434d-a140-0473b8af0f36" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appaccounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/appaccounts/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appaccounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/appaccounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appaccounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/appaccounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appaccounts/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/appaccounts/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appaccounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/appaccounts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appaccounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/appaccounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appbooking/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/appbooking/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appbooking/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/appbooking/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appbooking/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/appbooking/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appbooking/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/appbooking/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appcomments/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/appcomments/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appcomments/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/appcomments/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appcomments/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/appcomments/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appcomments/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/appcomments/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appmenu/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/appmenu/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appmenu/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/appmenu/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appmenu/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/appmenu/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appmenu/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/appmenu/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apppages/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/apppages/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apppages/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apppages/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apppages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apppages/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_module/local_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/local_module/local_functions.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2CrRt628StAnua6mxRNcIJqFrKP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="692fc214-e4db-434d-a140-0473b8af0f36" name="Changes" comment="" />
+      <created>1659558928535</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659558928535</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -9,6 +9,7 @@ class MenuStarterAdmin(admin.ModelAdmin):
         "price"
     ]
     
+
 class MenuMainAdmin(admin.ModelAdmin):
     model = MenuMain
     list_display = [
@@ -16,6 +17,7 @@ class MenuMainAdmin(admin.ModelAdmin):
         "price"
     ]
     
+
 class MenuDessertAdmin(admin.ModelAdmin):
     model = MenuDessert
     list_display = [
@@ -23,12 +25,14 @@ class MenuDessertAdmin(admin.ModelAdmin):
         "price"
     ]
     
+
 class MenuDrinksAdmin(admin.ModelAdmin):
     model = MenuDrinks
     list_display = [
         "drink",
         "price"
     ]
+
 
 class MenuAlcoholAdmin(admin.ModelAdmin):
     model = MenuAlcohol
@@ -37,6 +41,7 @@ class MenuAlcoholAdmin(admin.ModelAdmin):
         "price"
     ]
     
+
 admin.site.register(MenuStarter, MenuStarterAdmin)
 admin.site.register(MenuMain, MenuMainAdmin)
 admin.site.register(MenuDessert, MenuDessertAdmin)

@@ -12,5 +12,6 @@ class commentsAdmin(admin.ModelAdmin):
         "rating",
         "date",
     ]
-    
+
+
 admin.site.register(Comments, commentsAdmin)
